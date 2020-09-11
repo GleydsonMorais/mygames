@@ -6,9 +6,15 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using MyGames.Data.Contexts;
+using MyGames.Data.Models.Identity;
 
 namespace MyGames.Web
 {
@@ -31,12 +37,41 @@ namespace MyGames.Web
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            var connection = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContext<MyGamesDbContext>(opts => opts.UseSqlServer(connection, builder => builder.UseRowNumberForPaging()));
+
+            services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+                options.Password.RequiredUniqueChars = 2;
+
+                options.User.RequireUniqueEmail = true;
+
+                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+
+                options.Lockout.AllowedForNewUsers = false;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+            }).AddEntityFrameworkStores<MyGamesDbContext>().AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(opitions =>
+            {
+                opitions.LoginPath = "/Identity/Account/Login/";
+                opitions.LogoutPath = "/Identity/Account/Logout/";
+                opitions.AccessDeniedPath = "/Identity/Account/AccesseDenied/";
+                opitions.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+            });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -49,9 +84,18 @@ namespace MyGames.Web
                 app.UseHsts();
             }
 
+            loggerFactory.AddFile("./Logs/myapp-{Date}.txt");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
+
+            var options = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture("pt-BR")
+            };
 
             app.UseMvc(routes =>
             {
