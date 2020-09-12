@@ -38,5 +38,30 @@ namespace MyGames.Data.Constants
         {
             return perfilDB == AdministradorDB ? Administrador : Amigo;
         }
+
+        /// <summary>
+        /// Ativo
+        /// </summary>
+        public static readonly string StatusAtivo = "Ativo";
+        /// <summary>
+        /// Inativo
+        /// </summary>
+        public static readonly string StatusInativo = "Inativo";
+
+        /// <summary>
+        /// Recebe true ou false e retorna Ativo ou Inativo
+        /// </summary>
+        public static string GetStatusUsuario(bool statusDB)
+        {
+            return statusDB ? StatusAtivo : StatusInativo;
+        }
+
+        /// <summary>
+        /// Recebe Ativo ou Inativo e retorna true ou false
+        /// </summary>
+        public static bool GetStatusDbUsuario(string status)
+        {
+            return status == "Ativo" ? true : false;
+        }
     }
 }

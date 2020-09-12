@@ -79,15 +79,15 @@ namespace MyGames.Data
 
         private static async Task CreateTipoJogoAsync(MyGamesDbContext context)
         {
-            var tipoPessoa = new List<TipoPessoa>
+            var tipoJogo = new List<TipoJogo>
             {
-                new TipoPessoa{ Descricao = GamesConstants.Tabuleiro },
-                new TipoPessoa{ Descricao = GamesConstants.Cartas },
-                new TipoPessoa{ Descricao = GamesConstants.PS4 },
-                new TipoPessoa{ Descricao = GamesConstants.XBox }
+                new TipoJogo{ Descricao = GamesConstants.Tabuleiro },
+                new TipoJogo{ Descricao = GamesConstants.Cartas },
+                new TipoJogo{ Descricao = GamesConstants.PS4 },
+                new TipoJogo{ Descricao = GamesConstants.XBox }
             };
 
-            context.AddRange(tipoPessoa);
+            context.AddRange(tipoJogo);
             await context.SaveChangesAsync();
         }
     }

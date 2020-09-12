@@ -101,7 +101,8 @@ namespace MyGames.Data.Contexts
 
                 i.HasMany(x => x.JogosEmprestados)
                 .WithOne(x => x.Pessoa)
-                .HasForeignKey(x => x.PessoaId);
+                .HasForeignKey(x => x.PessoaId)
+                .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<TipoPessoa>(i =>

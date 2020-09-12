@@ -1,0 +1,59 @@
+﻿@model AmigoEditViewModel
+@{
+    ViewData["Title"] = "Editar Amigo";
+    AlertViewModel alertModel = ViewBag.alerts;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+@if (alertModel != null)
+{
+    <alerthelper type="@alertModel.Type" message="@alertModel.Text"></alerthelper>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Id">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label asp-for="Nome"></label> <span style="color: #FF0000">*</span>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="UserName"></label> <span style="color: #FF0000">*</span>
+                    <input asp-for="UserName" class="form-control" readonly />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Telefone"></label>
+                    <input asp-for="Telefone" class="form-control" />
+                    <span asp-validation-for="Telefone" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6">
+                    <label asp-for="Email"></label> <span style="color: #FF0000">*</span>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-2">
+                    <label asp-for="Status"></label> <span style="color: #FF0000">*</span>
+                    <select asp-for="Status" class="form-control">
+                        <option value="">Selecione</option>
+                        <option value="Ativo">Ativo</option>
+                        <option value="Inativo">Inativo</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <span style="color: #FF0000;">* Campo obrigatório</span>
+                </div>
+                <div class="form-group col-md-6 text-right">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

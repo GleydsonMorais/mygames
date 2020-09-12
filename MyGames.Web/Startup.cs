@@ -15,6 +15,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using MyGames.Data.Contexts;
 using MyGames.Data.Models.Identity;
+using MyGames.Web.Interfaces;
+using MyGames.Web.Models.Config;
+using MyGames.Web.Services;
 
 namespace MyGames.Web
 {
@@ -66,6 +69,14 @@ namespace MyGames.Web
                 opitions.AccessDeniedPath = "/Identity/Account/AccesseDenied/";
                 opitions.ExpireTimeSpan = TimeSpan.FromMinutes(20);
             });
+
+            // Options
+            services.Configure<MyGamesAPIConfig>(Configuration.GetSection("MyGamesAPI"));
+
+            // Add application services.
+            services.AddTransient<IIdentityService, IdentityService>();
+            services.AddTransient<ILookupService, LookupService>();
+            services.AddTransient<IAmigoService, AmigoService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

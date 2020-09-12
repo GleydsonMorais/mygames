@@ -1,0 +1,37 @@
+﻿body, html {
+    height: 100%;
+}
+
+body {
+    background-size: cover;
+    background-image: url(/images/background-login.jpg);
+}
+
+    body .login-form {
+        width: 400px;
+        background-color: rgba(255, 255, 255, 0.59);
+        padding: 20px;
+    }
+
+        body .login-form .login-form__title {
+            font-size: 2.5em;
+        }
+
+        body .login-form .input-group-text {
+            background-color: #FFF;
+            color: #b1b1b1;
+        }
+
+    body .buttons-login__label, body .buttons-login__link {
+        color: #525252;
+    }
+
+.btn-primary {
+    background-color: #00A1E4;
+    border-color: #0096d5;
+}
+
+    .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+        background-color: #007db1 !important;
+        border-color: #006b98;
+    }

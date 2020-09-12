@@ -45,5 +45,21 @@ namespace MyGames.Data.Constants
         /// 4
         /// </sumary>>
         public static readonly int XBoxDB = 4;
+
+        /// <summary>
+        /// Recebe true ou false e retorna Sim ou Não
+        /// </summary>
+        public static string GetStatusDevolucao(bool statusDB)
+        {
+            return statusDB ? "Sim" : "Não";
+        }
+
+        /// <summary>
+        /// Recebe Sim ou Não e retorna true ou false
+        /// </summary>
+        public static bool GetStatusDbDevolucao(string status)
+        {
+            return status == "Sim" ? true : false;
+        }
     }
 }
