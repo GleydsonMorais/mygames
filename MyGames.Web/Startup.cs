@@ -77,6 +77,7 @@ namespace MyGames.Web
             services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<ILookupService, LookupService>();
             services.AddTransient<IAmigoService, AmigoService>();
+            services.AddTransient<IJogoService, JogoService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

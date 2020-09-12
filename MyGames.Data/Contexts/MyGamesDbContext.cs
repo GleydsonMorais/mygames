@@ -124,7 +124,7 @@ namespace MyGames.Data.Contexts
                 .WithMany(x => x.Jogos)
                 .HasForeignKey(x => x.TipoJogoId);
 
-                i.HasMany(x => x.JogosEmprestados)
+                i.HasMany(x => x.HistoricoEmprestimo)
                .WithOne(x => x.Jogo)
                .HasForeignKey(x => x.JogoId);
             });
@@ -149,7 +149,7 @@ namespace MyGames.Data.Contexts
                 .HasForeignKey(x => x.PessoaId);
 
                 i.HasOne(x => x.Jogo)
-                .WithMany(x => x.JogosEmprestados)
+                .WithMany(x => x.HistoricoEmprestimo)
                 .HasForeignKey(x => x.JogoId);
             });
         }

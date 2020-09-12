@@ -1,0 +1,126 @@
+﻿@model IList<JogoIndexViewModel>
+@{
+    ViewData["Title"] = "Jogos";
+    JogoFilterViewModel filter = (JogoFilterViewModel)ViewData["CurrentFilter"];
+}
+
+@inject ILookupService _lookupService
+
+<h4>@ViewData["Title"]</h4>
+
+<div class="card">
+    <div class="card-header">
+        <form>
+            <input type="hidden" asp-for="@filter.Pesquisa" value="true">
+            <div class="form-row">
+                <div class="form-group col-sm-5">
+                    <label>Nome</label>
+                    <input type="text" asp-for="@filter.Nome" class="form-control">
+                </div>
+                <div class="form-group col-sm-2">
+                    <label>Tipo</label>
+                    <select asp-for="@filter.TipoJogoId" asp-items="@await _lookupService.SelectListTipoJogoAsync()" class="form-control">
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-2">
+                    <label>Emprestado</label>
+                    <select asp-for="@filter.Emprestado" class="form-control">
+                        <option value="">Selecione</option>
+                        <option value="true">Sim</option>
+                        <option value="false">Não</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-3" style="margin-top: 32px;">
+                    <button class="btn btn-primary" type="submit"><span class="fa fa-search"></span> Pesquisar</button>
+                    <a asp-controller="Jogo" asp-action="Create" class="btn btn-success"><i class="fa fa-fw fa-plus"></i> Cadastrar</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-striped table-bordered" id="tbResult" style="width:100%;">
+        <thead>
+            <tr>
+                <th>@Html.DisplayName("Id")</th>
+                <th>@Html.DisplayName("Nome")</th>
+                <th>@Html.DisplayName("Tipo")</th>
+                <th>@Html.DisplayName("Histórico")</th>
+                <th>@Html.DisplayName("Emprestado")</th>
+                <th>@Html.DisplayName("Amigo")</th>
+                <th>@Html.DisplayName("Data do Emprestimo")</th>
+                <th width="10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Nome</td>
+                    <td>@item.TipoJogo</td>
+
+                    <td>
+                        @if (item.Emprestado == "Sim")
+                        {
+                            <button type="button" class="btn btn-light btn-sm" data-toggle="ajax-modal" data-target="#jogohistorico" data-url="@Url.Action("GetJogoHistoricoAsync", "Jogo", new { id = item.Id })">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-light btn-sm" disabled><i class="fa fa-ellipsis-h"></i></button>
+                        }
+                    </td>
+
+                    <td>@item.Emprestado</td>
+                    <td>@item.Amigo</td>
+                    <td>@item.DtEmprestimo</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-controller="Jogo" asp-action="edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Jogo" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="card">
+        <div class="card-header" style="margin-top: 10px;">
+            @if (filter.Pesquisa)
+            {
+                <p class="text-center">Sua pesquisa não localizou resultado(s)</p>
+            }
+            else
+            {
+                <p class="text-center">Informe algum filtro para realizar a pesquisa</p>
+            }
+        </div>
+    </div>
+}
+<div id="modal-placeholder"></div>
+
+@section Scripts {
+    <script type="text/javascript">
+        var placeholderElement = $('#modal-placeholder');
+
+        $('button[data-toggle="ajax-modal"]').click(function (event) {
+            var url = $(this).data('url');
+            $.get(url).done(function (data) {
+                placeholderElement.html(data);
+                placeholderElement.find('.modal').modal('show');
+            });
+        });
+
+        $('#tbResult').DataTable({
+            fixedHeader: true,
+            order: [],
+            searching: true
+        });
+    </script>
+}

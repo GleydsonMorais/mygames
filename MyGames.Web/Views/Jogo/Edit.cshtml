@@ -1,0 +1,132 @@
+﻿@model JogoEditViewModel
+@{
+    ViewData["Title"] = "Editar Jogo";
+    AlertViewModel alertModel = ViewBag.alerts;
+}
+
+@inject ILookupService _lookupService
+
+<h4>@ViewData["Title"]</h4>
+
+@if (alertModel != null)
+{
+    <alerthelper type="@alertModel.Type" message="@alertModel.Text"></alerthelper>
+}
+
+<form method="post">
+    <input type="hidden" asp-for="Id">
+    <input type="hidden" asp-for="Amigo" />
+    <input type="hidden" asp-for="DtEmprestimo" />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label asp-for="Nome"></label> <span style="color: #FF0000">*</span>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2">
+                    <label asp-for="Tipo"></label>
+                    <input asp-for="Tipo" class="form-control" readonly />
+                </div>
+                <div class="form-group col-md-2">
+                    <label asp-for="Emprestado"></label>
+                    <input asp-for="Emprestado" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <span style="color: #FF0000;">* Campo obrigatório</span>
+                </div>
+                <div class="form-group col-md-6 text-right">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<hr />
+
+<div class="col-sm-8 offset-2">
+    <div class="mensagem-emprestimo" role="alert"></div>
+</div>
+
+
+@if (Model.Emprestado == "Sim")
+{
+    <h5>Jogo Emprestado</h5>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label asp-for="Amigo"></label>
+                    <input asp-for="Amigo" class="form-control" readonly />
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="DtEmprestimo"></label>
+                    <input asp-for="DtEmprestimo" class="form-control" readonly />
+                </div>
+                <div class="form-group col-md-2 text-right" style="margin-top: 32px;">
+                    <button type="button" class="btn btn-warning btn-devolver" data-id="@Model.Id">Devolver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h5>Emprestar jogo</h5>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-row">
+                <div class="form-group col-sm-10">
+                    <label>Emprestar Para</label>
+                    <select asp-for="AmigoId" asp-items="@await _lookupService.SelectListAmigAsync()" class="form-control">
+                        <option value="">Selecione</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-2 text-right" style="margin-top: 32px;">
+                    <button type="button" class="btn btn-success">Emprestar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script type="text/javascript">
+        $('.btn-devolver').on('click', function () {
+            var jogoId = $(this).data('id');
+
+            $.ajax({
+                method: "POST",
+                url: '/Jogo/DevolverJogo/',
+                data: {
+                    id: jogoId
+                },
+                beforeSend: function () {
+                    $('.btn-devolver').html('<i class="fa fa-spinner fa-spin"></i>&nbsp;Devolvendo...');
+                },
+                success: function (response) {
+                    if (response) {
+                        if (response.succeeded) {
+                            $('.mensagem-emprestimo').addClass('alert alert-success').html('').append(response.message);
+                            $('.btn-devolver').attr('disabled', 'disabeld');
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            $('.mensagem-emprestimo').addClass('alert alert-danger').html('').append(response.message);
+                        }
+                    }
+                },
+                complete: function () {
+                    $('.btn-devolver').html('Devolver');
+                },
+            });
+
+        });
+    </script>
+}

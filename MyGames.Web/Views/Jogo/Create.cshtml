@@ -1,0 +1,44 @@
+﻿@model JogoCreateViewModel
+@{
+    ViewData["Title"] = "Cadastrar Jogo";
+    AlertViewModel alertModel = ViewBag.alerts;
+}
+
+@inject ILookupService _lookupService
+
+<h4>@ViewData["Title"]</h4>
+
+@if (alertModel != null)
+{
+    <alerthelper type="@alertModel.Type" message="@alertModel.Text"></alerthelper>
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-row">
+                <div class="form-group col-md-10">
+                    <label asp-for="Nome"></label> <span style="color: #FF0000">*</span>
+                    <input asp-for="Nome" class="form-control" />
+                    <span asp-validation-for="Nome" class="text-danger"></span>
+                </div>
+                <div class="form-group col-sm-2">
+                    <label asp-for="TipoJogoId"></label> <span style="color: #FF0000">*</span>
+                    <select asp-for="TipoJogoId" asp-items="@await _lookupService.SelectListTipoJogoAsync()" class="form-control">
+                        <option value="">Selecione</option>
+                    </select>
+                    <span asp-validation-for="TipoJogoId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <span style="color: #FF0000;">* Campo obrigatório</span>
+                </div>
+                <div class="form-group col-md-6 text-right">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -16,6 +16,7 @@ using MyGames.API.Interfaces;
 using MyGames.API.Services;
 using MyGames.Data.Contexts;
 using MyGames.Data.Models.Identity;
+using MyGames.Data.Repositories;
 
 namespace MyGames.API
 {
@@ -55,6 +56,10 @@ namespace MyGames.API
 
             // Add application services.
             services.AddTransient<IAmigoService, AmigoService>();
+            services.AddTransient<IJogoService, JogoService>();
+
+            services.AddTransient<IAmigoRepository, AmigoRepository>();
+            services.AddTransient<IJogoRepository, JogoRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
