@@ -15,10 +15,10 @@ namespace MyGames.Object.Amigo
         public bool JogoEmprestado { get; set; }
         public bool Status { get; set; }
 
-        public IList<HistoricoEmprestimoResult> HistoricoEmprestimo { get; set; }
+        public IList<AmigoHistoricoEmprestimoResult> HistoricoEmprestimo { get; set; }
     }
 
-    public class HistoricoEmprestimoResult
+    public class AmigoHistoricoEmprestimoResult
     {
         public int JogoId { get; set; }
         public string Nome { get; set; }

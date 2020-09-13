@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyGames.API.Interfaces;
 using MyGames.API.Models.Amigo;
-using MyGames.Data.Helpers;
 using MyGames.Object.Amigo;
 
 namespace MyGames.API.Controllers

@@ -13,7 +13,7 @@ namespace MyGames.Object.Jogo
 
         public TipoJogoResult Tipo { get; set; }
 
-        public IList<HistoricoEmprestimoResult> Historico { get; set; }
+        public IList<JogoHistoricoEmprestimoResult> Historico { get; set; }
     }
 
     public class TipoJogoResult
@@ -22,7 +22,7 @@ namespace MyGames.Object.Jogo
         public string Descricao { get; set; }
     }
 
-    public class HistoricoEmprestimoResult
+    public class JogoHistoricoEmprestimoResult
     {
         public int PessoaId { get; set; }
         public int JogoId { get; set; }
@@ -30,10 +30,10 @@ namespace MyGames.Object.Jogo
         public DateTime? DtDevolucao { get; set; }
         public bool Devolvido { get; set; }
 
-        public AmigoResult Amigo { get; set; }
+        public JogoAmigoResult Amigo { get; set; }
     }
 
-    public class AmigoResult
+    public class JogoAmigoResult
     {
         public int Id { get; set; }
         public string Nome { get; set; }

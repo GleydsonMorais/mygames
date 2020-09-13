@@ -1,9 +1,11 @@
-﻿using MyGames.API.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using MyGames.API.Interfaces;
 using MyGames.API.Models.Jogo;
 using MyGames.Data.Helpers;
 using MyGames.Data.Models;
 using MyGames.Data.Repositories;
 using MyGames.Object.Jogo;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,14 +41,14 @@ namespace MyGames.API.Services
                     Descricao = x.TipoJogo.Descricao
                 },
                 Historico = x.HistoricoEmprestimo.Select(y =>
-                new HistoricoEmprestimoResult
+                new JogoHistoricoEmprestimoResult
                 {
                     PessoaId = y.PessoaId,
                     JogoId = y.JogoId,
                     DtDevolucao = y.DtDevolucao,
                     DtEmprestimo = y.DtEmprestimo,
                     Devolvido = y.Devolvido,
-                    Amigo = new AmigoResult
+                    Amigo = new JogoAmigoResult
                     {
                         Id = y.Pessoa.Id,
                         Nome = y.Pessoa.Nome,
@@ -74,14 +76,14 @@ namespace MyGames.API.Services
                         Descricao = jogo.TipoJogo.Descricao
                     },
                     Historico = jogo.HistoricoEmprestimo.Select(x =>
-                    new HistoricoEmprestimoResult
+                    new JogoHistoricoEmprestimoResult
                     {
                         PessoaId = x.PessoaId,
                         JogoId = x.JogoId,
                         DtDevolucao = x.DtDevolucao,
                         DtEmprestimo = x.DtEmprestimo,
                         Devolvido = x.Devolvido,
-                        Amigo = new AmigoResult
+                        Amigo = new JogoAmigoResult
                         {
                             Id = x.Pessoa.Id,
                             Nome = x.Pessoa.Nome,

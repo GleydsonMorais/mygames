@@ -59,7 +59,7 @@ namespace MyGames.API.Services
                     Email = amigo.Login.Email,
                     JogoEmprestado = amigo.HistoricoEmprestimos.Count() > 0 ? true : false,
                     HistoricoEmprestimo = amigo.HistoricoEmprestimos.Select(x =>
-                    new HistoricoEmprestimoResult
+                    new AmigoHistoricoEmprestimoResult
                     {
                         JogoId = x.JogoId,
                         Nome = x.Jogo.Nome,

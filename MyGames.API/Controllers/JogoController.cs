@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyGames.API.Interfaces;
 using MyGames.API.Models.Jogo;
@@ -36,7 +33,7 @@ namespace MyGames.API.Controllers
         }
 
         // GET: api/Jogo/5
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<JogoResult>> Get(int id)
         {
             var lsitJogo = await _jogoService.GetJogoAsync(id);
@@ -88,7 +85,7 @@ namespace MyGames.API.Controllers
             return NoContent();
         }
 
-        //PUT api/Jogo/Devolver/5
+        //PUT api/Jogo/Emprestar/5
         [HttpPut("Emprestar/{id}/{amigoId}")]
         public async Task<ActionResult> Devolver(int id, int amigoId)
         {
