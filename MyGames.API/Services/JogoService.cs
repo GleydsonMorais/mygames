@@ -263,7 +263,7 @@ namespace MyGames.API.Services
                         if (amigo != null)
                         {
                             jogo.Emprestado = true;
-                            jogo.HistoricoEmprestimo.Add(new MyGames.Data.Models.JogoEmprestado
+                            jogo.HistoricoEmprestimo.Add(new MyGames.Data.Models.HistoricoEmprestimo
                             {
                                 PessoaId = amigo.Id,
                                 JogoId = jogo.Id,

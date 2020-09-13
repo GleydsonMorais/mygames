@@ -13,6 +13,6 @@ namespace MyGames.Data.Models
 
         public TipoJogo TipoJogo { get; set; }
 
-        public IList<JogoEmprestado> HistoricoEmprestimo { get; set; } = new List<JogoEmprestado>();
+        public IList<HistoricoEmprestimo> HistoricoEmprestimo { get; set; } = new List<HistoricoEmprestimo>();
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyGames.Data.Models
 {
-    public class JogoEmprestado
+    public class HistoricoEmprestimo
     {
         public int Id { get; set; }
         public int PessoaId { get; set; }

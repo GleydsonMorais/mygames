@@ -16371,3 +16371,535 @@ WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
 2020-09-12T22:14:16.7127417-03:00 800000b1-0000-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)" in 59.8669ms (afa2e885)
 2020-09-12T22:14:16.7127918-03:00 800000b1-0000-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Index (MyGames.Web)"' (99874f2b)
 2020-09-12T22:14:16.7130065-03:00 800000b1-0000-f200-b63f-84710c7967bb [INF] Request finished in 61.1146ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:20:58.2634351-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/   (ca22a1cb)
+2020-09-12T22:20:58.3606884-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.HomeController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:20:58.3729997-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Home\", page = \"\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "MyGames.Web.Controllers.HomeController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:20:58.3832241-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:20:58.3935834-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.HomeController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:20:58.3993243-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.HomeController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.5128ms. (50a9e262)
+2020-09-12T22:20:58.4297849-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:20:58.6073485-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:20:58.7012880-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("4"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:20:58.8286755-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:20:58.9841858-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 572.0101ms. (f66409e9)
+2020-09-12T22:20:58.9923747-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.HomeController.Index (MyGames.Web)" in 619.0882ms (afa2e885)
+2020-09-12T22:20:58.9940251-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.HomeController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:20:59.0401885-03:00 800000de-0001-fd00-b63f-84710c7967bb [INF] Request finished in 780.1292ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:20:59.0547920-03:00 800000c0-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/css/dataTables.bootstrap4.css   (ca22a1cb)
+2020-09-12T22:20:59.0548081-03:00 80000087-0003-fb00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2020-09-12T22:20:59.0582133-03:00 80000118-0003-ff00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/font-awesome/css/all.min.css   (ca22a1cb)
+2020-09-12T22:20:59.0637300-03:00 800000d2-0000-f300-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/jquery/dist/jquery.js   (ca22a1cb)
+2020-09-12T22:20:59.0637292-03:00 8000010a-0000-f700-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/css/fixedHeader.bootstrap4.min.css   (ca22a1cb)
+2020-09-12T22:20:59.0807644-03:00 80000118-0003-ff00-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/font-awesome/css/all.min.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\font-awesome\css\all.min.css"' (27b0a520)
+2020-09-12T22:20:59.0807587-03:00 8000010a-0000-f700-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/css/fixedHeader.bootstrap4.min.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\css\fixedHeader.bootstrap4.min.css"' (27b0a520)
+2020-09-12T22:20:59.0808797-03:00 8000010a-0000-f700-b63f-84710c7967bb [INF] Request finished in 17.1349ms 200 text/css (791a596a)
+2020-09-12T22:20:59.0808839-03:00 80000118-0003-ff00-b63f-84710c7967bb [INF] Request finished in 22.6856ms 200 text/css (791a596a)
+2020-09-12T22:20:59.0812137-03:00 800000e0-0001-fd00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/css/site.css   (ca22a1cb)
+2020-09-12T22:20:59.0826306-03:00 800000d9-0001-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/bootstrap/dist/js/bootstrap.bundle.js   (ca22a1cb)
+2020-09-12T22:20:59.0856625-03:00 80000114-0001-fe00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/js/dataTables.fixedHeader.min.js   (ca22a1cb)
+2020-09-12T22:20:59.0860044-03:00 800000b3-0001-f400-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/js/jquery.dataTables.min.js   (ca22a1cb)
+2020-09-12T22:20:59.0874476-03:00 80000151-0001-f900-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/js/site.js   (ca22a1cb)
+2020-09-12T22:20:59.0874407-03:00 800000b2-0001-f700-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/js/dataTables.bootstrap4.js   (ca22a1cb)
+2020-09-12T22:20:59.0902238-03:00 800000e0-0001-fd00-b63f-84710c7967bb [INF] Sending file. Request path: '"/css/site.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\css\site.css"' (27b0a520)
+2020-09-12T22:20:59.0902533-03:00 80000114-0001-fe00-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/js/dataTables.fixedHeader.min.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\js\dataTables.fixedHeader.min.js"' (27b0a520)
+2020-09-12T22:20:59.0902707-03:00 800000e0-0001-fd00-b63f-84710c7967bb [INF] Request finished in 9.0852ms 200 text/css (791a596a)
+2020-09-12T22:20:59.0902840-03:00 80000114-0001-fe00-b63f-84710c7967bb [INF] Request finished in 4.6716ms 200 application/javascript (791a596a)
+2020-09-12T22:20:59.0903020-03:00 800000b2-0001-f700-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/js/dataTables.bootstrap4.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\js\dataTables.bootstrap4.js"' (27b0a520)
+2020-09-12T22:20:59.0903533-03:00 800000b2-0001-f700-b63f-84710c7967bb [INF] Request finished in 2.954ms 200 application/javascript (791a596a)
+2020-09-12T22:20:59.0904712-03:00 80000151-0001-f900-b63f-84710c7967bb [INF] Sending file. Request path: '"/js/site.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\js\site.js"' (27b0a520)
+2020-09-12T22:20:59.0904996-03:00 80000151-0001-f900-b63f-84710c7967bb [INF] Request finished in 3.0908ms 200 application/javascript (791a596a)
+2020-09-12T22:20:59.0906429-03:00 800000c0-0002-f700-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/css/dataTables.bootstrap4.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\css\dataTables.bootstrap4.css"' (27b0a520)
+2020-09-12T22:20:59.0906818-03:00 800000c0-0002-f700-b63f-84710c7967bb [INF] Request finished in 35.9529ms 200 text/css (791a596a)
+2020-09-12T22:20:59.1077060-03:00 800000b3-0001-f400-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/js/jquery.dataTables.min.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\js\jquery.dataTables.min.js"' (27b0a520)
+2020-09-12T22:20:59.1078316-03:00 800000b3-0001-f400-b63f-84710c7967bb [INF] Request finished in 21.8664ms 200 application/javascript (791a596a)
+2020-09-12T22:20:59.1086553-03:00 80000087-0003-fb00-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2020-09-12T22:20:59.1087071-03:00 80000087-0003-fb00-b63f-84710c7967bb [INF] Request finished in 53.9715ms 200 text/css (791a596a)
+2020-09-12T22:20:59.1094574-03:00 800000d9-0001-f800-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.bundle.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js"' (27b0a520)
+2020-09-12T22:20:59.1095063-03:00 800000d9-0001-f800-b63f-84710c7967bb [INF] Request finished in 27.0507ms 200 application/javascript (791a596a)
+2020-09-12T22:20:59.1103936-03:00 800000d2-0000-f300-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2020-09-12T22:20:59.1105500-03:00 800000d2-0000-f300-b63f-84710c7967bb [INF] Request finished in 46.7662ms 200 application/javascript (791a596a)
+2020-09-12T22:21:08.2713510-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Amigo   (ca22a1cb)
+2020-09-12T22:21:08.2810034-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:21:08.3095042-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Amigo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(MyGames.Web.Models.Amigo.AmigoFilterViewModel)" on controller "MyGames.Web.Controllers.AmigoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:21:08.3105142-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:21:08.3258366-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:21:08.7206760-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 394.7211ms. (50a9e262)
+2020-09-12T22:21:08.7298055-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:21:08.7756259-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:21:08.7803813-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:21:08.7833361-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:21:08.7866140-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 62.4548ms. (f66409e9)
+2020-09-12T22:21:08.7869516-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)" in 477.3724ms (afa2e885)
+2020-09-12T22:21:08.7869945-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:21:08.7871811-03:00 80000089-0003-fb00-b63f-84710c7967bb [INF] Request finished in 515.9849ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:21:08.9670407-03:00 800000b7-0001-f400-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/font-awesome/webfonts/fa-solid-900.woff2   (ca22a1cb)
+2020-09-12T22:21:08.9699065-03:00 800000b7-0001-f400-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/font-awesome/webfonts/fa-solid-900.woff2"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2"' (27b0a520)
+2020-09-12T22:21:08.9700741-03:00 800000b7-0001-f400-b63f-84710c7967bb [INF] Request finished in 2.9557ms 200 font/woff2 (791a596a)
+2020-09-12T22:21:11.7851102-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Amigo/GetListJogosEmprestadosAsync/9   (ca22a1cb)
+2020-09-12T22:21:11.7878650-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:21:11.7918810-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetListJogosEmprestadosAsync\", controller = \"Amigo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetListJogosEmprestadosAsync(Int32)" on controller "MyGames.Web.Controllers.AmigoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:21:11.7920794-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:21:11.7933681-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:21:12.2791318-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.PartialViewResult" in 485.6455ms. (50a9e262)
+2020-09-12T22:21:12.2856696-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Executing PartialViewResult, running view "_ListJogosEmprestados". (1d3d4b21)
+2020-09-12T22:21:12.2941798-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Executed PartialViewResult - view "_ListJogosEmprestados" executed in 12.4651ms. (6f83ade2)
+2020-09-12T22:21:12.2943063-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)" in 502.3301ms (afa2e885)
+2020-09-12T22:21:12.2943751-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:21:12.2945725-03:00 8000008b-0003-fb00-b63f-84710c7967bb [INF] Request finished in 509.4974ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:21:17.0054135-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Amigo/GetListJogosEmprestadosAsync/9   (ca22a1cb)
+2020-09-12T22:21:17.0110571-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:21:17.0113694-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Route matched with "{action = \"GetListJogosEmprestadosAsync\", controller = \"Amigo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetListJogosEmprestadosAsync(Int32)" on controller "MyGames.Web.Controllers.AmigoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:21:17.0115052-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:21:17.0119033-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:21:17.0363253-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.PartialViewResult" in 24.3142ms. (50a9e262)
+2020-09-12T22:21:17.0366111-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Executing PartialViewResult, running view "_ListJogosEmprestados". (1d3d4b21)
+2020-09-12T22:21:17.0368747-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Executed PartialViewResult - view "_ListJogosEmprestados" executed in 0.3646ms. (6f83ade2)
+2020-09-12T22:21:17.0369188-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)" in 25.5089ms (afa2e885)
+2020-09-12T22:21:17.0369671-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.AmigoController.GetListJogosEmprestadosAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:21:17.0372309-03:00 8000008d-0003-fb00-b63f-84710c7967bb [INF] Request finished in 31.8715ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:24:39.0031402-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/   (ca22a1cb)
+2020-09-12T22:24:39.1358385-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.HomeController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:24:39.1452185-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Home\", page = \"\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Index()" on controller "MyGames.Web.Controllers.HomeController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:24:39.1554580-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:24:39.1663088-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.HomeController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:24:39.1697303-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.HomeController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 0.3807ms. (50a9e262)
+2020-09-12T22:24:39.1879068-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:24:39.3068231-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:24:39.3780618-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executed DbCommand ("4"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:24:39.4587780-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:24:39.5448911-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 366.7335ms. (f66409e9)
+2020-09-12T22:24:39.5530608-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.HomeController.Index (MyGames.Web)" in 407.5761ms (afa2e885)
+2020-09-12T22:24:39.5560475-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.HomeController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:24:39.6025610-03:00 800001a3-0000-fc00-b63f-84710c7967bb [INF] Request finished in 608.3558ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:24:39.6113049-03:00 800000ba-0001-f400-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2020-09-12T22:24:39.6133305-03:00 800000de-0001-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/font-awesome/css/all.min.css   (ca22a1cb)
+2020-09-12T22:24:39.6181976-03:00 800000bd-0003-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/css/dataTables.bootstrap4.css   (ca22a1cb)
+2020-09-12T22:24:39.6265527-03:00 800000ea-0003-fe00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/css/fixedHeader.bootstrap4.min.css   (ca22a1cb)
+2020-09-12T22:24:39.6292203-03:00 800000ea-0003-fe00-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/css/fixedHeader.bootstrap4.min.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\css\fixedHeader.bootstrap4.min.css"' (27b0a520)
+2020-09-12T22:24:39.6293395-03:00 800000ea-0003-fe00-b63f-84710c7967bb [INF] Request finished in 2.8134ms 200 text/css (791a596a)
+2020-09-12T22:24:39.6373592-03:00 800000de-0001-f800-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/font-awesome/css/all.min.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\font-awesome\css\all.min.css"' (27b0a520)
+2020-09-12T22:24:39.6374524-03:00 800000de-0001-f800-b63f-84710c7967bb [INF] Request finished in 24.1817ms 200 text/css (791a596a)
+2020-09-12T22:24:39.6459652-03:00 800000bd-0003-f800-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/css/dataTables.bootstrap4.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\css\dataTables.bootstrap4.css"' (27b0a520)
+2020-09-12T22:24:39.6460290-03:00 800000bd-0003-f800-b63f-84710c7967bb [INF] Request finished in 27.8619ms 200 text/css (791a596a)
+2020-09-12T22:24:39.6703799-03:00 8000000e-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/css/site.css   (ca22a1cb)
+2020-09-12T22:24:39.6740830-03:00 8000000e-0003-f200-b63f-84710c7967bb [INF] Sending file. Request path: '"/css/site.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\css\site.css"' (27b0a520)
+2020-09-12T22:24:39.6763321-03:00 8000000e-0003-f200-b63f-84710c7967bb [INF] Request finished in 5.9934ms 200 text/css (791a596a)
+2020-09-12T22:24:39.6790466-03:00 800000ba-0001-f400-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2020-09-12T22:24:39.6791643-03:00 800000ba-0001-f400-b63f-84710c7967bb [INF] Request finished in 68.0273ms 200 text/css (791a596a)
+2020-09-12T22:24:39.6879626-03:00 80000146-0002-f600-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/jquery/dist/jquery.js   (ca22a1cb)
+2020-09-12T22:24:39.6879739-03:00 800000e0-0001-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/bootstrap/dist/js/bootstrap.bundle.js   (ca22a1cb)
+2020-09-12T22:24:39.6907369-03:00 800001a5-0000-fc00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/js/dataTables.bootstrap4.js   (ca22a1cb)
+2020-09-12T22:24:39.6965050-03:00 800001a5-0000-fc00-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/js/dataTables.bootstrap4.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\js\dataTables.bootstrap4.js"' (27b0a520)
+2020-09-12T22:24:39.6965696-03:00 800001a5-0000-fc00-b63f-84710c7967bb [INF] Request finished in 6.1261ms 200 application/javascript (791a596a)
+2020-09-12T22:24:39.7050129-03:00 800000c4-0002-f700-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/js/jquery.dataTables.min.js   (ca22a1cb)
+2020-09-12T22:24:39.7066115-03:00 80000153-0001-f900-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/datatables/js/dataTables.fixedHeader.min.js   (ca22a1cb)
+2020-09-12T22:24:39.7184264-03:00 80000010-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/js/site.js   (ca22a1cb)
+2020-09-12T22:24:39.7202308-03:00 800000e0-0001-f800-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/bootstrap/dist/js/bootstrap.bundle.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js"' (27b0a520)
+2020-09-12T22:24:39.7202322-03:00 80000010-0003-f200-b63f-84710c7967bb [INF] Sending file. Request path: '"/js/site.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\js\site.js"' (27b0a520)
+2020-09-12T22:24:39.7202791-03:00 80000010-0003-f200-b63f-84710c7967bb [INF] Request finished in 7.4343ms 200 application/javascript (791a596a)
+2020-09-12T22:24:39.7202860-03:00 800000e0-0001-f800-b63f-84710c7967bb [INF] Request finished in 32.3518ms 200 application/javascript (791a596a)
+2020-09-12T22:24:39.7205503-03:00 80000146-0002-f600-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2020-09-12T22:24:39.7205969-03:00 80000146-0002-f600-b63f-84710c7967bb [INF] Request finished in 32.7237ms 200 application/javascript (791a596a)
+2020-09-12T22:24:39.7268478-03:00 80000153-0001-f900-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/js/dataTables.fixedHeader.min.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\js\dataTables.fixedHeader.min.js"' (27b0a520)
+2020-09-12T22:24:39.7269597-03:00 80000153-0001-f900-b63f-84710c7967bb [INF] Request finished in 20.332ms 200 application/javascript (791a596a)
+2020-09-12T22:24:39.7302031-03:00 800000c4-0002-f700-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/datatables/js/jquery.dataTables.min.js"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\datatables\js\jquery.dataTables.min.js"' (27b0a520)
+2020-09-12T22:24:39.7303430-03:00 800000c4-0002-f700-b63f-84710c7967bb [INF] Request finished in 25.3267ms 200 application/javascript (791a596a)
+2020-09-12T22:24:43.7054239-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Amigo   (ca22a1cb)
+2020-09-12T22:24:43.7158235-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:24:43.7496634-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Amigo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(MyGames.Web.Models.Amigo.AmigoFilterViewModel)" on controller "MyGames.Web.Controllers.AmigoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:24:43.7508203-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:24:43.7701854-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:24:44.2119802-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 441.6654ms. (50a9e262)
+2020-09-12T22:24:44.2205499-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:24:44.2600846-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:24:44.2624619-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:24:44.2658251-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:24:44.2690117-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 51.5186ms. (f66409e9)
+2020-09-12T22:24:44.2692821-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)" in 519.4713ms (afa2e885)
+2020-09-12T22:24:44.2693649-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:24:44.2695526-03:00 800000e2-0001-f800-b63f-84710c7967bb [INF] Request finished in 564.1914ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:24:44.4423017-03:00 800001a7-0000-fc00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/lib/font-awesome/webfonts/fa-solid-900.woff2   (ca22a1cb)
+2020-09-12T22:24:44.4452873-03:00 800001a7-0000-fc00-b63f-84710c7967bb [INF] Sending file. Request path: '"/lib/font-awesome/webfonts/fa-solid-900.woff2"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\lib\font-awesome\webfonts\fa-solid-900.woff2"' (27b0a520)
+2020-09-12T22:24:44.4453979-03:00 800001a7-0000-fc00-b63f-84710c7967bb [INF] Request finished in 3.4071ms 200 font/woff2 (791a596a)
+2020-09-12T22:24:44.8108918-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo   (ca22a1cb)
+2020-09-12T22:24:44.8129173-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:24:44.8222767-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(MyGames.Web.Models.Jogo.JogoFilterViewModel)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:24:44.8224615-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:24:44.8237473-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:24:45.0586978-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 234.829ms. (50a9e262)
+2020-09-12T22:24:45.0670149-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:24:45.0921653-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:24:45.1116117-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Descricao] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [TipoJogo] AS [x]" (0723d8ff)
+2020-09-12T22:24:45.1402722-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:24:45.1414324-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:24:45.1434912-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 84.6223ms. (f66409e9)
+2020-09-12T22:24:45.1436195-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)" in 321.263ms (afa2e885)
+2020-09-12T22:24:45.1436829-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:24:45.1438885-03:00 8000014a-0002-f600-b63f-84710c7967bb [INF] Request finished in 333.019ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:24:46.9608504-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/1   (ca22a1cb)
+2020-09-12T22:24:46.9626248-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:24:46.9820603-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:24:46.9821607-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:24:46.9834111-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:24:47.0904364-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 106.8729ms. (50a9e262)
+2020-09-12T22:24:47.0938130-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:24:47.2034630-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:24:47.2048730-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:24:47.2059597-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:24:47.2079586-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 117.4238ms. (f66409e9)
+2020-09-12T22:24:47.2080827-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 225.9618ms (afa2e885)
+2020-09-12T22:24:47.2081430-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:24:47.2084780-03:00 800001ab-0000-fc00-b63f-84710c7967bb [INF] Request finished in 247.682ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:22.9313571-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/1   (ca22a1cb)
+2020-09-12T22:25:22.9352901-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:22.9356211-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:22.9357640-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:22.9360593-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:22.9574588-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 21.3217ms. (50a9e262)
+2020-09-12T22:25:22.9575736-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:22.9625590-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:22.9737088-03:00 8000014c-0002-f600-b63f-84710c7967bb [WRN] The Include operation for navigation '"[x].Login"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information. (10efaee6)
+2020-09-12T22:25:23.0038861-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Nome] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [Pessoa] AS [x]
+LEFT JOIN [Users] AS [x.Login] ON [x].[LoginId] = [x.Login].[Id]
+WHERE ([x].[TipoPessoaId] = 2) AND ([x.Login].[Status] = 1)" (0723d8ff)
+2020-09-12T22:25:23.0148487-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:23.0158677-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:23.0166714-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 59.122ms. (f66409e9)
+2020-09-12T22:25:23.0167348-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 81.0627ms (afa2e885)
+2020-09-12T22:25:23.0167887-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:23.0171741-03:00 8000014c-0002-f600-b63f-84710c7967bb [INF] Request finished in 85.866ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:23.1308497-03:00 80000018-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/favicon.ico   (ca22a1cb)
+2020-09-12T22:25:23.1324347-03:00 80000018-0003-f200-b63f-84710c7967bb [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\Users\gguedesm\Desktop\GleydsonMorais\Personal Docs\Seleções\Invilla\Desafio\mygames\MyGames.Web\wwwroot\favicon.ico"' (27b0a520)
+2020-09-12T22:25:23.1329776-03:00 80000018-0003-f200-b63f-84710c7967bb [INF] Request finished in 1.9776ms 200 image/x-icon (791a596a)
+2020-09-12T22:25:25.3497617-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Request starting HTTP/2.0 POST https://localhost:44379/Jogo/EmprestarJogo/ application/x-www-form-urlencoded; charset=UTF-8 14 (ca22a1cb)
+2020-09-12T22:25:25.3512322-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:25.3574683-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Route matched with "{action = \"EmprestarJogo\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[MyGames.Data.Helpers.QueryResult`1[System.String]] EmprestarJogoAsync(Int32, Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:25.3577559-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:25.3746138-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:25.8169415-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 441.9258ms. (50a9e262)
+2020-09-12T22:25:25.8231644-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"MyGames.Data.Helpers.QueryResult`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2020-09-12T22:25:25.8631358-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" in 505.5744ms (afa2e885)
+2020-09-12T22:25:25.8632185-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:25.8634935-03:00 8000014e-0002-f600-b63f-84710c7967bb [INF] Request finished in 514.2236ms 200 application/json; charset=utf-8 (791a596a)
+2020-09-12T22:25:27.8869893-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/1   (ca22a1cb)
+2020-09-12T22:25:27.8884974-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:27.8890952-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:27.8892296-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:27.8894712-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:27.9382173-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 48.5227ms. (50a9e262)
+2020-09-12T22:25:27.9383528-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:27.9409476-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:27.9455522-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:27.9498685-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:27.9521479-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 13.8131ms. (f66409e9)
+2020-09-12T22:25:27.9522226-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 63.062ms (afa2e885)
+2020-09-12T22:25:27.9522653-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:27.9526035-03:00 800000e8-0001-f800-b63f-84710c7967bb [INF] Request finished in 65.78ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:28.9380154-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 POST https://localhost:44379/Jogo/DevolverJogo/ application/x-www-form-urlencoded; charset=UTF-8 4 (ca22a1cb)
+2020-09-12T22:25:28.9390133-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:28.9438124-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Route matched with "{action = \"DevolverJogo\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[MyGames.Data.Helpers.QueryResult`1[System.String]] DevolverJogoAsync(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:28.9439184-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:28.9445859-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:28.9981047-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 53.4094ms. (50a9e262)
+2020-09-12T22:25:28.9989620-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"MyGames.Data.Helpers.QueryResult`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2020-09-12T22:25:28.9997600-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)" in 55.8468ms (afa2e885)
+2020-09-12T22:25:28.9998086-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:28.9998556-03:00 800000ea-0001-f800-b63f-84710c7967bb [INF] Request finished in 61.9624ms 200 application/json; charset=utf-8 (791a596a)
+2020-09-12T22:25:31.0202579-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/1   (ca22a1cb)
+2020-09-12T22:25:31.0212761-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:31.0214453-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:31.0215603-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:31.0217539-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:31.0550201-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 33.1872ms. (50a9e262)
+2020-09-12T22:25:31.0551252-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:31.0565752-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:31.0617187-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Nome] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [Pessoa] AS [x]
+LEFT JOIN [Users] AS [x.Login] ON [x].[LoginId] = [x.Login].[Id]
+WHERE ([x].[TipoPessoaId] = 2) AND ([x.Login].[Status] = 1)" (0723d8ff)
+2020-09-12T22:25:31.0657626-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:31.0696948-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:31.0709947-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 15.8619ms. (f66409e9)
+2020-09-12T22:25:31.0711116-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 49.5908ms (afa2e885)
+2020-09-12T22:25:31.0711493-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:31.0713287-03:00 8000001e-0003-f200-b63f-84710c7967bb [INF] Request finished in 51.1363ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:33.6249704-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Request starting HTTP/2.0 POST https://localhost:44379/Jogo/EmprestarJogo/ application/x-www-form-urlencoded; charset=UTF-8 14 (ca22a1cb)
+2020-09-12T22:25:33.6254151-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:33.6255198-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Route matched with "{action = \"EmprestarJogo\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[MyGames.Data.Helpers.QueryResult`1[System.String]] EmprestarJogoAsync(Int32, Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:33.6256099-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:33.6259225-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:33.6796313-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 53.6198ms. (50a9e262)
+2020-09-12T22:25:33.6797863-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"MyGames.Data.Helpers.QueryResult`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2020-09-12T22:25:33.6799224-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" in 54.3615ms (afa2e885)
+2020-09-12T22:25:33.6799506-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:33.6802202-03:00 800001af-0000-fc00-b63f-84710c7967bb [INF] Request finished in 55.3096ms 200 application/json; charset=utf-8 (791a596a)
+2020-09-12T22:25:35.6964559-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/1   (ca22a1cb)
+2020-09-12T22:25:35.6969331-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:35.6980623-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:35.6988086-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:35.6992238-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:35.7209305-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 21.6053ms. (50a9e262)
+2020-09-12T22:25:35.7210375-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:35.7233097-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:35.7254576-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:35.7265723-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:35.7277271-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 6.6807ms. (f66409e9)
+2020-09-12T22:25:35.7277891-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 29.1366ms (afa2e885)
+2020-09-12T22:25:35.7278269-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:35.7281440-03:00 80000020-0003-f200-b63f-84710c7967bb [INF] Request finished in 31.7539ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:36.0926273-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo   (ca22a1cb)
+2020-09-12T22:25:36.0931959-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:36.0933283-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(MyGames.Web.Models.Jogo.JogoFilterViewModel)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:36.0934172-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:36.0936135-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:36.1271559-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 33.4461ms. (50a9e262)
+2020-09-12T22:25:36.1272812-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:25:36.1295698-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:36.1363111-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Descricao] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [TipoJogo] AS [x]" (0723d8ff)
+2020-09-12T22:25:36.1408386-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:36.1424410-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:36.1438302-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 16.4976ms. (f66409e9)
+2020-09-12T22:25:36.1439553-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)" in 50.5666ms (afa2e885)
+2020-09-12T22:25:36.1439947-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:36.1441083-03:00 80000156-0002-f600-b63f-84710c7967bb [INF] Request finished in 51.544ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:37.3509848-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/2   (ca22a1cb)
+2020-09-12T22:25:37.3517967-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:37.3523128-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:37.3524522-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:37.3527604-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:37.3745397-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 21.6948ms. (50a9e262)
+2020-09-12T22:25:37.3746396-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:37.3758498-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:37.3768935-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Nome] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [Pessoa] AS [x]
+LEFT JOIN [Users] AS [x.Login] ON [x].[LoginId] = [x.Login].[Id]
+WHERE ([x].[TipoPessoaId] = 2) AND ([x.Login].[Status] = 1)" (0723d8ff)
+2020-09-12T22:25:37.3838000-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:37.3862758-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:37.3872818-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 12.6451ms. (f66409e9)
+2020-09-12T22:25:37.3873694-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 35.0075ms (afa2e885)
+2020-09-12T22:25:37.3874071-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:37.3876188-03:00 80000022-0003-f200-b63f-84710c7967bb [INF] Request finished in 36.7447ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:39.7659677-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 POST https://localhost:44379/Jogo/EmprestarJogo/ application/x-www-form-urlencoded; charset=UTF-8 15 (ca22a1cb)
+2020-09-12T22:25:39.7666644-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:39.7668552-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"EmprestarJogo\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[MyGames.Data.Helpers.QueryResult`1[System.String]] EmprestarJogoAsync(Int32, Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:39.7669978-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:39.7672938-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:39.7976422-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 30.1551ms. (50a9e262)
+2020-09-12T22:25:39.7992197-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"MyGames.Data.Helpers.QueryResult`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2020-09-12T22:25:39.7994889-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" in 32.5518ms (afa2e885)
+2020-09-12T22:25:39.7995363-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:39.7996538-03:00 80000024-0003-f200-b63f-84710c7967bb [INF] Request finished in 33.7807ms 200 application/json; charset=utf-8 (791a596a)
+2020-09-12T22:25:41.5811337-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo   (ca22a1cb)
+2020-09-12T22:25:41.5820887-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:41.5822445-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(MyGames.Web.Models.Jogo.JogoFilterViewModel)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:41.5823562-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:41.5825012-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:41.6040007-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 21.4108ms. (50a9e262)
+2020-09-12T22:25:41.6045517-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:25:41.6073438-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:41.6083033-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Descricao] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [TipoJogo] AS [x]" (0723d8ff)
+2020-09-12T22:25:41.6121114-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:41.6153306-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:41.6166019-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 12.4602ms. (f66409e9)
+2020-09-12T22:25:41.6166906-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Index (MyGames.Web)" in 34.3888ms (afa2e885)
+2020-09-12T22:25:41.6167313-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:41.6169857-03:00 80000026-0003-f200-b63f-84710c7967bb [INF] Request finished in 36.243ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:42.4613362-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/5   (ca22a1cb)
+2020-09-12T22:25:42.4629693-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:42.4631173-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:42.4632314-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:42.4633892-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:42.4793268-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 15.7964ms. (50a9e262)
+2020-09-12T22:25:42.4796727-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:42.4815547-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:42.4831458-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Nome] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [Pessoa] AS [x]
+LEFT JOIN [Users] AS [x.Login] ON [x].[LoginId] = [x.Login].[Id]
+WHERE ([x].[TipoPessoaId] = 2) AND ([x.Login].[Status] = 1)" (0723d8ff)
+2020-09-12T22:25:42.4853676-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:42.4864665-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:42.4875362-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 7.9807ms. (f66409e9)
+2020-09-12T22:25:42.4876160-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 24.4483ms (afa2e885)
+2020-09-12T22:25:42.4876675-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:42.4879134-03:00 80000028-0003-f200-b63f-84710c7967bb [INF] Request finished in 26.6192ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:44.6270676-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 POST https://localhost:44379/Jogo/EmprestarJogo/ application/x-www-form-urlencoded; charset=UTF-8 14 (ca22a1cb)
+2020-09-12T22:25:44.6279541-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:44.6286451-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"EmprestarJogo\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[MyGames.Data.Helpers.QueryResult`1[System.String]] EmprestarJogoAsync(Int32, Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:44.6287558-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:44.6290863-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:44.6583435-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 29.172ms. (50a9e262)
+2020-09-12T22:25:44.6585082-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"MyGames.Data.Helpers.QueryResult`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2020-09-12T22:25:44.6586761-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)" in 29.9724ms (afa2e885)
+2020-09-12T22:25:44.6587071-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.EmprestarJogoAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:44.6587693-03:00 8000002a-0003-f200-b63f-84710c7967bb [INF] Request finished in 31.8027ms 200 application/json; charset=utf-8 (791a596a)
+2020-09-12T22:25:46.6759402-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/5   (ca22a1cb)
+2020-09-12T22:25:46.6789424-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:46.6790544-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:46.6791438-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:46.6793555-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:46.7015582-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 22.0241ms. (50a9e262)
+2020-09-12T22:25:46.7017048-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:46.7038783-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:46.7058295-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:46.7072844-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:46.7088261-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 7.1335ms. (f66409e9)
+2020-09-12T22:25:46.7089084-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 29.7989ms (afa2e885)
+2020-09-12T22:25:46.7089417-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:46.7090266-03:00 800000f4-0001-f800-b63f-84710c7967bb [INF] Request finished in 33.3824ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:47.9212157-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Request starting HTTP/2.0 POST https://localhost:44379/Jogo/DevolverJogo/ application/x-www-form-urlencoded; charset=UTF-8 4 (ca22a1cb)
+2020-09-12T22:25:47.9217427-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:47.9218499-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Route matched with "{action = \"DevolverJogo\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[MyGames.Data.Helpers.QueryResult`1[System.String]] DevolverJogoAsync(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:47.9219557-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:47.9221873-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:47.9512741-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 28.9618ms. (50a9e262)
+2020-09-12T22:25:47.9513883-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Executing ObjectResult, writing value of type '"MyGames.Data.Helpers.QueryResult`1[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'. (8a1b66c8)
+2020-09-12T22:25:47.9515614-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)" in 29.6443ms (afa2e885)
+2020-09-12T22:25:47.9516158-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.DevolverJogoAsync (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:47.9519219-03:00 80000160-0002-f600-b63f-84710c7967bb [INF] Request finished in 30.7884ms 200 application/json; charset=utf-8 (791a596a)
+2020-09-12T22:25:49.9708413-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Jogo/Edit/5   (ca22a1cb)
+2020-09-12T22:25:49.9714307-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:49.9715907-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"Edit\", controller = \"Jogo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Edit(Int32)" on controller "MyGames.Web.Controllers.JogoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:49.9717424-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:49.9719203-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:49.9882348-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 16.2373ms. (50a9e262)
+2020-09-12T22:25:49.9883336-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executing ViewResult, running view "Edit". (c83d0e25)
+2020-09-12T22:25:49.9896702-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:49.9914190-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [x].[Nome] AS [Text], CONVERT(VARCHAR(11), [x].[Id]) AS [Value]
+FROM [Pessoa] AS [x]
+LEFT JOIN [Users] AS [x.Login] ON [x].[LoginId] = [x.Login].[Id]
+WHERE ([x].[TipoPessoaId] = 2) AND ([x.Login].[Status] = 1)" (0723d8ff)
+2020-09-12T22:25:49.9941061-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:49.9952677-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:49.9966032-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executed ViewResult - view "Edit" executed in 8.1255ms. (f66409e9)
+2020-09-12T22:25:49.9968005-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)" in 25.1531ms (afa2e885)
+2020-09-12T22:25:49.9971818-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.JogoController.Edit (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:49.9974111-03:00 8000002e-0003-f200-b63f-84710c7967bb [INF] Request finished in 26.4995ms 200 text/html; charset=utf-8 (791a596a)
+2020-09-12T22:25:51.9841721-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Request starting HTTP/2.0 GET https://localhost:44379/Amigo   (ca22a1cb)
+2020-09-12T22:25:51.9848247-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executing endpoint '"MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)"' (500cc934)
+2020-09-12T22:25:51.9850335-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Route matched with "{action = \"Index\", controller = \"Amigo\", page = \"\", area = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Index(MyGames.Web.Models.Amigo.AmigoFilterViewModel)" on controller "MyGames.Web.Controllers.AmigoController" ("MyGames.Web"). (122b2fdf)
+2020-09-12T22:25:51.9851804-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Authorization was successful. (0d575a54)
+2020-09-12T22:25:51.9854489-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executing action method "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)" - Validation state: Valid (dad538d7)
+2020-09-12T22:25:52.0103199-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executed action method "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)", returned result "Microsoft.AspNetCore.Mvc.ViewResult" in 24.7174ms. (50a9e262)
+2020-09-12T22:25:52.0104568-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executing ViewResult, running view "Index". (c83d0e25)
+2020-09-12T22:25:52.0146214-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Entity Framework Core "2.2.6-servicing-10079" initialized '"MyGamesDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "RowNumberPaging " (9958f5bb)
+2020-09-12T22:25:52.0162806-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("1"ms) [Parameters=["@__get_Item_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [e].[Id], [e].[AccessFailedCount], [e].[ConcurrencyStamp], [e].[Email], [e].[EmailConfirmed], [e].[LockoutEnabled], [e].[LockoutEnd], [e].[NormalizedEmail], [e].[NormalizedUserName], [e].[PasswordHash], [e].[PhoneNumber], [e].[PhoneNumberConfirmed], [e].[SecurityStamp], [e].[Status], [e].[TwoFactorEnabled], [e].[UserName]
+FROM [Users] AS [e]
+WHERE [e].[Id] = @__get_Item_0" (0723d8ff)
+2020-09-12T22:25:52.0174371-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (Size = 450)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [x].[Id], [x].[DtCadastro], [x].[LoginId], [x].[Nome], [x].[Telefone], [x].[TipoPessoaId]
+FROM [Pessoa] AS [x]
+WHERE [x].[LoginId] = @__userId_0" (0723d8ff)
+2020-09-12T22:25:52.0183469-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executed ViewResult - view "Index" executed in 7.9145ms. (f66409e9)
+2020-09-12T22:25:52.0184944-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executed action "MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)" in 33.3745ms (afa2e885)
+2020-09-12T22:25:52.0185303-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Executed endpoint '"MyGames.Web.Controllers.AmigoController.Index (MyGames.Web)"' (99874f2b)
+2020-09-12T22:25:52.0188736-03:00 80000030-0003-f200-b63f-84710c7967bb [INF] Request finished in 34.7871ms 200 text/html; charset=utf-8 (791a596a)

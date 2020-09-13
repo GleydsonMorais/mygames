@@ -15,7 +15,7 @@ namespace MyGames.Data.Contexts
         public DbSet<TipoPessoa> TipoPessoas { get; set; }
         public DbSet<Jogo> Jogos { get; set; }
         public DbSet<TipoJogo> TipoJogos { get; set; }
-        public DbSet<JogoEmprestado> JogosEmprestados { get; set; }
+        public DbSet<HistoricoEmprestimo> JogosEmprestados { get; set; }
 
         public MyGamesDbContext(DbContextOptions<MyGamesDbContext> options)
             : base(options)
@@ -139,9 +139,9 @@ namespace MyGames.Data.Contexts
                 .HasForeignKey(x => x.TipoJogoId);
             });
 
-            modelBuilder.Entity<JogoEmprestado>(i =>
+            modelBuilder.Entity<HistoricoEmprestimo>(i =>
             {
-                i.ToTable("JogoEmprestado");
+                i.ToTable("HistoricoEmprestimo");
                 i.HasKey(x => x.Id);
 
                 i.HasOne(x => x.Pessoa)

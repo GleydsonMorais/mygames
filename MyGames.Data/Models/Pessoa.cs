@@ -17,6 +17,6 @@ namespace MyGames.Data.Models
         public ApplicationUser Login { get; set; }
         public TipoPessoa TipoPessoa { get; set; }
 
-        public IList<JogoEmprestado> JogosEmprestados { get; set; } = new List<JogoEmprestado>();
+        public IList<HistoricoEmprestimo> JogosEmprestados { get; set; } = new List<HistoricoEmprestimo>();
     }
 }
