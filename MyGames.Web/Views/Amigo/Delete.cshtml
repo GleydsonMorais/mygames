@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            @if (Model.JogosEmprestados.Count() > 0)
+            @if (Model.Historico.Count() > 0)
             {
                 <div class="form-row">
                     <h5>Jogos Emprestados</h5>
@@ -48,15 +48,17 @@
                                 <th>@Html.DisplayName("Nome")</th>
                                 <th>@Html.DisplayName("Tipo")</th>
                                 <th>@Html.DisplayName("Data do Emprestimo")</th>
+                                <th>@Html.DisplayName("Data da Devolução")</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model.JogosEmprestados)
+                            @foreach (var item in Model.Historico)
                             {
                                 <tr>
                                     <td>@item.Nome</td>
                                     <td>@item.TipoJogo</td>
                                     <td>@item.DtEmprestimo</td>
+                                    <td>@item.DtDevolucao</td>
                                 </tr>
                             }
                         </tbody>

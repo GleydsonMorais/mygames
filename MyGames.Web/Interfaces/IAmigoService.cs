@@ -11,12 +11,12 @@ namespace MyGames.Web.Interfaces
 {
     public interface IAmigoService
     {
-        Task<Amigo> GetAmigoAsync(int id);
+        Task<AmigoResult> GetAmigoAsync(int id);
         Task<IList<AmigoIndexViewModel>> ListAmigoAsync([FromQuery]AmigoFilterViewModel filter);
-        Task<AmigoJogosViewModel> GetListJogosEmprestadosAsync(int id);
-        Task<QueryResult<string>> CreateAmigoAsync(AmigoCreateViewModel model);
+        Task<AmigoHistoricoEmprestimoViewModel> GetHistoricoEmprestimoAsync(int id);
+        Task<QueryResult<AmigoCreateViewModel>> CreateAmigoAsync(AmigoCreateViewModel model);
         Task<AmigoEditViewModel> GetAmigoEditAsync(int id);
-        Task<QueryResult<string>> EditAmigoAsync(AmigoEditViewModel model);
+        Task<QueryResult<AmigoEditViewModel>> EditAmigoAsync(AmigoEditViewModel model);
         Task<AmigoDeleteViewModel> GetAmigoDeleteAsync(int id);
         Task<QueryResult<string>> DeleteAmigoAsync(AmigoDeleteViewModel model);
     }

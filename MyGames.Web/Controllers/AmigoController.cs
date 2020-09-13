@@ -38,7 +38,7 @@ namespace MyGames.Web.Controllers
         [HttpGet]
         public async Task<IActionResult> GetListJogosEmprestadosAsync(int id)
         {
-            var model = await _amigoService.GetListJogosEmprestadosAsync(id);
+            var model = await _amigoService.GetHistoricoEmprestimoAsync(id);
             if (null == model)
             {
                 return NotFound();

@@ -99,7 +99,7 @@ namespace MyGames.Data.Contexts
                 .WithMany(x => x.Pessoas)
                 .HasForeignKey(x => x.TipoPessoaId);
 
-                i.HasMany(x => x.JogosEmprestados)
+                i.HasMany(x => x.HistoricoEmprestimos)
                 .WithOne(x => x.Pessoa)
                 .HasForeignKey(x => x.PessoaId)
                 .OnDelete(DeleteBehavior.Cascade);
@@ -145,7 +145,7 @@ namespace MyGames.Data.Contexts
                 i.HasKey(x => x.Id);
 
                 i.HasOne(x => x.Pessoa)
-                .WithMany(x => x.JogosEmprestados)
+                .WithMany(x => x.HistoricoEmprestimos)
                 .HasForeignKey(x => x.PessoaId);
 
                 i.HasOne(x => x.Jogo)

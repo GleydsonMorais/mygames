@@ -9,7 +9,7 @@ namespace MyGames.Web.Models.Amigo
     public class AmigoFilterViewModel : FilterViewModel
     {
         public string Nome { get; set; }
-        public string Status { get; set; }
+        public bool? Status { get; set; }
         public bool Pesquisa { get; set; }
     }
 

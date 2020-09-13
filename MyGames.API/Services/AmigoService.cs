@@ -4,11 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using MyGames.API.Interfaces;
 using MyGames.API.Models.Amigo;
 using MyGames.Data.Constants;
-using MyGames.Data.Contexts;
 using MyGames.Data.Helpers;
 using MyGames.Data.Models.Identity;
+using MyGames.Data.Repositories;
 using MyGames.Object.Amigo;
-using MyGames.Object.Jogo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,70 +17,71 @@ namespace MyGames.API.Services
 {
     public class AmigoService : IAmigoService
     {
-        public readonly MyGamesDbContext _dataContext;
+        private readonly IAmigoRepository _amigoRepository;
         private readonly UserManager<ApplicationUser> _userManager;
 
-        public AmigoService(MyGamesDbContext dataContext,
+        public AmigoService(IAmigoRepository amigoRepository,
             UserManager<ApplicationUser> userManager)
         {
-            _dataContext = dataContext;
+            _amigoRepository = amigoRepository;
             _userManager = userManager;
         }
 
-        public async Task<Amigo> GetAmigoAsync(int id)
+        public async Task<IList<AmigoResult>> GetListAmigoAsync()
         {
-            var amigo = await _dataContext.Pessoas
-                .Include(x => x.TipoPessoa)
-                .Include(x => x.Login)
-                .Include(x => x.JogosEmprestados).ThenInclude(x => x.Jogo).ThenInclude(x => x.TipoJogo)
-                .SingleOrDefaultAsync(x => x.Id == id);
-
-            return new Amigo
-            {
-                Id = amigo.Id,
-                UserName = amigo.Login.UserName,
-                Nome = amigo.Nome,
-                TipoPessoa = amigo.TipoPessoa.Descricao,
-                Telefone = amigo.Telefone,
-                Email = amigo.Login.Email,
-                JogoEmprestado = amigo.JogosEmprestados.Count() > 0 ? true : false,
-                HistoricoEmprestimo = amigo.JogosEmprestados.Select(x =>
-                new JogoEmprestado
-                {
-                    JogoId = x.JogoId,
-                    Nome = x.Jogo.Nome,
-                    TipoJogo = x.Jogo.TipoJogo.Descricao,
-                    DtEmprestimo = x.DtEmprestimo.ToShortDateString(),
-                    DtDevolucao = x.DtDevolucao.HasValue ? x.DtDevolucao.Value.ToShortDateString() : null,
-                    Devolvido = GamesConstants.GetStatusDevolucao(x.Devolvido)
-                }).ToList(),
-                Status = AccountConstants.GetStatusUsuario(amigo.Login.Status)
-            };
-        }
-
-        public async Task<IList<Amigo>> GetListAmigoAsync() => await _dataContext.Pessoas
-            .Include(x => x.TipoPessoa)
-            .Include(x => x.Login)
-            .Include(x => x.JogosEmprestados)
-            .Where(x => x.TipoPessoaId == AccountConstants.AmigoDB)
-            .Select(x =>
-            new Amigo
+            var listAmigo = await _amigoRepository.AllAsync();
+            return listAmigo.Select(x =>
+            new AmigoResult
             {
                 Id = x.Id,
                 UserName = x.Login.UserName,
                 Nome = x.Nome,
-                TipoPessoa = x.TipoPessoa.Descricao,
+                TipoPessoaId = x.TipoPessoaId,
                 Telefone = x.Telefone,
                 Email = x.Login.Email,
-                JogoEmprestado = x.JogosEmprestados.Count() > 0 ? true : false,
-                Status = AccountConstants.GetStatusUsuario(x.Login.Status)
-            }).ToListAsync();
+                JogoEmprestado = x.HistoricoEmprestimos.Count() > 0 ? true : false,
+                Status = x.Login.Status
+            }).ToList();
+        }
+
+        public async Task<AmigoResult> GetAmigoAsync(int id)
+        {
+            var amigo = await _amigoRepository.GetAmigoAsync(id);
+            if (amigo != null)
+            {
+                return new AmigoResult
+                {
+                    Id = amigo.Id,
+                    UserName = amigo.Login.UserName,
+                    Nome = amigo.Nome,
+                    TipoPessoaId = amigo.TipoPessoaId,
+                    Telefone = amigo.Telefone,
+                    Email = amigo.Login.Email,
+                    JogoEmprestado = amigo.HistoricoEmprestimos.Count() > 0 ? true : false,
+                    HistoricoEmprestimo = amigo.HistoricoEmprestimos.Select(x =>
+                    new HistoricoEmprestimoResult
+                    {
+                        JogoId = x.JogoId,
+                        Nome = x.Jogo.Nome,
+                        TipoJogo = x.Jogo.TipoJogo.Descricao,
+                        DtEmprestimo = x.DtEmprestimo,
+                        DtDevolucao = x.DtDevolucao,
+                        Devolvido = x.Devolvido
+                    }).ToList(),
+                    Status = amigo.Login.Status
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public async Task<QueryResult<string>> CreateAmigoAsync([FromBody]AmigoCreate model)
         {
             try
             {
-                var emailCadastrado = await _dataContext.Users.SingleOrDefaultAsync(x => x.Email.ToLower() == model.Email.ToLower());
+                var emailCadastrado = await _amigoRepository.ValidateEmialAsync(model.Email);
                 if (emailCadastrado != null)
                 {
                     return new QueryResult<string>
@@ -124,17 +124,15 @@ namespace MyGames.API.Services
             }
         }
 
-        public async Task<QueryResult<string>> EditAmigoAsync(int id, [FromBody]AmigoEdit model)
+        public async Task<QueryResult<string>> UpdateAmigoAsync(int id, [FromBody]AmigoEdit model)
         {
             try
             {
-                var pessoa = await _dataContext.Pessoas
-                    .Include(x => x.Login)
-                    .SingleOrDefaultAsync(x => x.Id == id);
-                if (pessoa != null)
+                var amigo = await _amigoRepository.GetAmigoAsync(id);
+                if (amigo != null)
                 {
-                    var emailDiferente = (pessoa.Login.Email.ToUpper() != model.Email.ToUpper());
-                    var emailCadastrado = await _dataContext.Users.SingleOrDefaultAsync(x => x.Email.ToLower() == model.Email.ToLower());
+                    var emailDiferente = (amigo.Login.Email.ToUpper() != model.Email.ToUpper());
+                    var emailCadastrado = await _amigoRepository.ValidateEmialAsync(model.Email);
                     if (emailDiferente && emailCadastrado != null)
                     {
                         return new QueryResult<string>
@@ -144,14 +142,13 @@ namespace MyGames.API.Services
                         };
                     }
 
-                    pessoa.Nome = model.Nome;
-                    pessoa.Telefone = model.Telefone;
-                    pessoa.Login.Email = model.Email.ToLower();
-                    pessoa.Login.NormalizedEmail = model.Email.ToUpper();
-                    pessoa.Login.Status = AccountConstants.GetStatusDbUsuario(model.Status);
+                    amigo.Nome = model.Nome;
+                    amigo.Telefone = model.Telefone;
+                    amigo.Login.Email = model.Email.ToLower();
+                    amigo.Login.NormalizedEmail = model.Email.ToUpper();
+                    amigo.Login.Status = AccountConstants.GetStatusDbUsuario(model.Status);
 
-                    _dataContext.Update(pessoa);
-                    await _dataContext.SaveChangesAsync();
+                    await _amigoRepository.UpdateAmigoAsync(amigo);
 
                     return new QueryResult<string>
                     {
@@ -182,16 +179,10 @@ namespace MyGames.API.Services
         {
             try
             {
-                var amigo = await _dataContext.Pessoas
-                    .Include(x => x.TipoPessoa)
-                    .Include(x => x.Login)
-                    .Include(x => x.JogosEmprestados).ThenInclude(x => x.Jogo).ThenInclude(x => x.TipoJogo)
-                    .SingleOrDefaultAsync(x => x.Id == id);
-                if (amigo.JogosEmprestados.Where(x => x.Devolvido == false).Count() == 0)
+                var amigo = await _amigoRepository.GetAmigoAsync(id);
+                if (amigo.HistoricoEmprestimos.Where(x => x.Devolvido == false).Count() == 0)
                 {
-                    _dataContext.Remove(amigo);
-                    _dataContext.Remove(amigo.Login);
-                    await _dataContext.SaveChangesAsync();
+                    await _amigoRepository.DeleteAmigoAsync(amigo);
 
                     return new QueryResult<string>
                     {

@@ -15,4 +15,29 @@ namespace MyGames.Object.Jogo
 
         public IList<HistoricoEmprestimoResult> Historico { get; set; }
     }
+
+    public class TipoJogoResult
+    {
+        public int Id { get; set; }
+        public string Descricao { get; set; }
+    }
+
+    public class HistoricoEmprestimoResult
+    {
+        public int PessoaId { get; set; }
+        public int JogoId { get; set; }
+        public DateTime DtEmprestimo { get; set; }
+        public DateTime? DtDevolucao { get; set; }
+        public bool Devolvido { get; set; }
+
+        public AmigoResult Amigo { get; set; }
+    }
+
+    public class AmigoResult
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Telefone { get; set; }
+        public string Email { get; set; }
+    }
 }

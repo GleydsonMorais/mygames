@@ -1,12 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MyGames.API.Interfaces;
+﻿using MyGames.API.Interfaces;
 using MyGames.API.Models.Jogo;
 using MyGames.Data.Helpers;
 using MyGames.Data.Models;
 using MyGames.Data.Repositories;
-using MyGames.Object.Amigo;
 using MyGames.Object.Jogo;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;

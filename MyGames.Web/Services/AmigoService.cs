@@ -6,7 +6,6 @@ using MyGames.Object.Amigo;
 using MyGames.Web.Interfaces;
 using MyGames.Web.Models.Amigo;
 using MyGames.Web.Models.Config;
-using MyGames.Web.Models.Jogo;
 using RestSharp;
 using System;
 using System.Collections.Generic;
@@ -27,9 +26,9 @@ namespace MyGames.Web.Services
             _lookupService = lookupService;
         }
 
-        public async Task<Amigo> GetAmigoAsync(int id)
+        public async Task<AmigoResult> GetAmigoAsync(int id)
         {
-            var amigo = new Amigo();
+            var amigo = new AmigoResult();
 
             RestClient client = new RestClient(_myGamesAPIConfig.URL);
             RestRequest request = new RestRequest("api/amigo/{id}", Method.GET);
@@ -38,9 +37,9 @@ namespace MyGames.Web.Services
             System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3;
 
-            IRestResponse<Amigo> response = await client.ExecuteAsync<Amigo>(request);
+            IRestResponse<AmigoResult> response = await client.ExecuteAsync<AmigoResult>(request);
 
-            if (response != null)
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 amigo = response.Data;
             }
@@ -58,16 +57,16 @@ namespace MyGames.Web.Services
             System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3;
 
-            IRestResponse<List<Amigo>> response = await client.ExecuteAsync<List<Amigo>>(request);
+            IRestResponse<List<AmigoResult>> response = await client.ExecuteAsync<List<AmigoResult>>(request);
 
-            if (response != null)
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 var result = response.Data;
 
                 if (!string.IsNullOrEmpty(filter.Nome))
                     result = result.Where(x => x.Nome.ToUpper().Contains(filter.Nome.ToUpper())).ToList();
 
-                if (!string.IsNullOrEmpty(filter.Status))
+                if (filter.Status.HasValue)
                     result = result.Where(x => x.Status == filter.Status).ToList();
 
                 listAmigo = result.Select(x =>
@@ -78,30 +77,31 @@ namespace MyGames.Web.Services
                     Telefone = x.Telefone,
                     Email = x.Email,
                     JogoEmpresatado = x.JogoEmprestado,
-                    Status = x.Status
+                    Status = AccountConstants.GetStatusUsuario(x.Status)
                 }).ToList();
             }
 
             return listAmigo;
         }
 
-        public async Task<AmigoJogosViewModel> GetListJogosEmprestadosAsync(int id)
+        public async Task<AmigoHistoricoEmprestimoViewModel> GetHistoricoEmprestimoAsync(int id)
         {
             var amigo = await GetAmigoAsync(id);
-            return new AmigoJogosViewModel
+            return new AmigoHistoricoEmprestimoViewModel
             {
                 Nome = amigo.Nome,
-                JogosEmprestados = amigo.HistoricoEmprestimo.Select(x =>
-                new JogoEmprestado
+                Historico = amigo.HistoricoEmprestimo.Select(x =>
+                new HistoricoEmprestimoViewModel
                 {
                     Nome = x.Nome,
                     TipoJogo = x.TipoJogo,
-                    DtEmprestimo = x.DtEmprestimo
+                    DtEmprestimo = x.DtEmprestimo.ToShortDateString(),
+                    DtDevolucao = x.DtDevolucao.HasValue ? x.DtDevolucao.Value.ToShortDateString() : null
                 }).ToList()
             };
         }
 
-        public async Task<QueryResult<string>> CreateAmigoAsync(AmigoCreateViewModel model)
+        public async Task<QueryResult<AmigoCreateViewModel>> CreateAmigoAsync(AmigoCreateViewModel model)
         {
             RestClient client = new RestClient(_myGamesAPIConfig.URL);
             RestRequest request = new RestRequest("api/amigo", Method.POST);
@@ -110,24 +110,24 @@ namespace MyGames.Web.Services
             System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3;
 
-            IRestResponse<QueryResult<string>> response = await client.ExecuteAsync<QueryResult<string>>(request);
+            IRestResponse<string> response = await client.ExecuteAsync<string>(request);
 
-            if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+            if (response.StatusCode == System.Net.HttpStatusCode.Created)
             {
-                return new QueryResult<string>
+                return new QueryResult<AmigoCreateViewModel>
                 {
-                    Succeeded = false,
-                    Message = "Erro, problema de conexão!"
+                    Succeeded = true,
+                    Result = model,
+                    Message = response.Data
                 };
             }
-            else
+
+            return new QueryResult<AmigoCreateViewModel>
             {
-                return new QueryResult<string>
-                {
-                    Succeeded = response.Data.Succeeded,
-                    Message = response.Data.Message
-                };
-            }
+                Succeeded = false,
+                Result = model,
+                Message = response.Data
+            };
         }
 
         public async Task<AmigoEditViewModel> GetAmigoEditAsync(int id)
@@ -140,11 +140,11 @@ namespace MyGames.Web.Services
                 UserName = amigo.UserName,
                 Telefone = amigo.Telefone,
                 Email = amigo.Email,
-                Status = amigo.Status
+                Status = AccountConstants.GetStatusUsuario(amigo.Status)
             };
         }
 
-        public async Task<QueryResult<string>> EditAmigoAsync(AmigoEditViewModel model)
+        public async Task<QueryResult<AmigoEditViewModel>> EditAmigoAsync(AmigoEditViewModel model)
         {
             RestClient client = new RestClient(_myGamesAPIConfig.URL);
             RestRequest request = new RestRequest("api/amigo/{id}", Method.PUT);
@@ -154,51 +154,46 @@ namespace MyGames.Web.Services
             System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3;
 
-            IRestResponse<QueryResult<string>> response = await client.ExecuteAsync<QueryResult<string>>(request);
+            IRestResponse<string> response = await client.ExecuteAsync<string>(request);
 
-            if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+            if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
-                return new QueryResult<string>
+                return new QueryResult<AmigoEditViewModel>
                 {
-                    Succeeded = false,
-                    Message = "Erro, problema de conexão!"
+                    Succeeded = true,
+                    Result = model,
+                    Message = "Amigo editado com sucesso."
                 };
             }
-            else
+
+            return new QueryResult<AmigoEditViewModel>
             {
-                return new QueryResult<string>
-                {
-                    Succeeded = response.Data.Succeeded,
-                    Message = response.Data.Message
-                };
-            }
+                Succeeded = false,
+                Result = model,
+                Message = response.Data
+            };
         }
 
         public async Task<AmigoDeleteViewModel> GetAmigoDeleteAsync(int id)
         {
             var amigo = await GetAmigoAsync(id);
-            var amigoDelete = new AmigoDeleteViewModel
+            return new AmigoDeleteViewModel
             {
                 Id = amigo.Id,
                 Nome = amigo.Nome,
                 UserName = amigo.UserName,
                 Telefone = amigo.Telefone,
                 Email = amigo.Email,
-                Status = amigo.Status
-            };
-
-            if (amigo.HistoricoEmprestimo != null)
-            {
-                amigoDelete.JogosEmprestados = amigo.HistoricoEmprestimo.Where(x => x.Devolvido == "Não").Select(x =>
-                new JogoEmprestado
+                Status = AccountConstants.GetStatusUsuario(amigo.Status),
+                Historico = amigo.HistoricoEmprestimo.Where(x => x.Devolvido == false).Select(x =>
+                new HistoricoEmprestimoViewModel
                 {
                     Nome = x.Nome,
                     TipoJogo = x.TipoJogo,
-                    DtEmprestimo = x.DtEmprestimo
-                }).ToList();
-            }
-
-            return amigoDelete;
+                    DtEmprestimo = x.DtEmprestimo.ToShortDateString(),
+                    DtDevolucao = x.DtDevolucao.HasValue ? x.DtDevolucao.Value.ToShortDateString() : null
+                }).ToList()
+            };
         }
 
         public async Task<QueryResult<string>> DeleteAmigoAsync(AmigoDeleteViewModel model)
@@ -210,24 +205,22 @@ namespace MyGames.Web.Services
             System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3;
 
-            IRestResponse<QueryResult<string>> response = await client.ExecuteAsync<QueryResult<string>>(request);
+            IRestResponse<string> response = await client.ExecuteAsync<string>(request);
 
-            if (response.StatusCode == System.Net.HttpStatusCode.InternalServerError)
+            if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
             {
                 return new QueryResult<string>
                 {
-                    Succeeded = false,
-                    Message = "Erro, problema de conexão!"
+                    Succeeded = true,
+                    Message = "Amigo deletado com sucesso."
                 };
             }
-            else
+
+            return new QueryResult<string>
             {
-                return new QueryResult<string>
-                {
-                    Succeeded = response.Data.Succeeded,
-                    Message = response.Data.Message
-                };
-            }
+                Succeeded = false,
+                Message = response.Data
+            };
         }
     }
 }

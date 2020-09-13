@@ -1,4 +1,4 @@
-﻿@model AmigoJogosViewModel
+﻿@model AmigoHistoricoEmprestimoViewModel
 <div class="modal fade" id="amigojogo" tabindex="-1" role="dialog" aria-labelledby="detailsLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -16,15 +16,17 @@
                             <th>@Html.DisplayName("Nome")</th>
                             <th>@Html.DisplayName("Tipo")</th>
                             <th>@Html.DisplayName("Data do Emprestimo")</th>
+                            <th>@Html.DisplayName("Data da Devolução")</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.JogosEmprestados)
+                        @foreach (var item in Model.Historico)
                         {
                             <tr>
                                 <td>@item.Nome</td>
                                 <td>@item.TipoJogo</td>
                                 <td>@item.DtEmprestimo</td>
+                                <td>@item.DtDevolucao</td>
                             </tr>
                         }
                     </tbody>

@@ -24,22 +24,69 @@ namespace MyGames.API.Controllers
 
         // GET: api/Amigo
         [HttpGet]
-        public async Task<IList<Amigo>> Get() => await _amigoService.GetListAmigoAsync();
+        public async Task<ActionResult<IList<AmigoResult>>> Get()
+        {
+            var lsitAmigo = await _amigoService.GetListAmigoAsync();
+
+            if (lsitAmigo == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(lsitAmigo);
+        }
 
         // GET: api/Amigo/5
         [HttpGet("{id}")]
-        public async Task<Amigo> Get(int id) => await _amigoService.GetAmigoAsync(id);
+        public async Task<ActionResult<AmigoResult>> Get(int id)
+        {
+            var amigo = await _amigoService.GetAmigoAsync(id);
+
+            if (amigo == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(amigo);
+        }
 
         // POST: api/Amigo
         [HttpPost]
-        public async Task<QueryResult<string>> Post([FromBody]AmigoCreate model) => await _amigoService.CreateAmigoAsync(model);
+        public async Task<ActionResult<string>> Post([FromBody]AmigoCreate model)
+        {
+            var result = await _amigoService.CreateAmigoAsync(model);
+            if (!result.Succeeded)
+            {
+                return NotFound(result.Message);
+            }
+
+            return StatusCode(201);
+        }
 
         // PUT: api/Amigo/5
         [HttpPut("{id}")]
-        public async Task<QueryResult<string>> Put(int id, [FromBody]AmigoEdit model) => await _amigoService.EditAmigoAsync(id, model);
+        public async Task<ActionResult> Put(int id, [FromBody]AmigoEdit model)
+        {
+            var result = await _amigoService.UpdateAmigoAsync(id, model);
+            if (!result.Succeeded)
+            {
+                return NotFound(result.Message);
+            }
+
+            return NoContent();
+        }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public async Task<QueryResult<string>> Delete(int id) => await _amigoService.DeleteAmigoAsync(id);
+        public async Task<ActionResult> Delete(int id)
+        {
+            var result = await _amigoService.DeleteAmigoAsync(id);
+            if (!result.Succeeded)
+            {
+                return NotFound(result.Message);
+            }
+
+            return NoContent();
+        }
     }
 }
