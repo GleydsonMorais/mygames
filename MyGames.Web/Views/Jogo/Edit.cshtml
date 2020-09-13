@@ -53,7 +53,6 @@
     <div class="mensagem-emprestimo" role="alert"></div>
 </div>
 
-
 @if (Model.Emprestado == "Sim")
 {
     <h5>Jogo Emprestado</h5>
@@ -88,7 +87,7 @@ else
                     </select>
                 </div>
                 <div class="form-group col-md-2 text-right" style="margin-top: 32px;">
-                    <button type="button" class="btn btn-success">Emprestar</button>
+                    <button type="button" class="btn btn-success btn-emprestar" data-id="@Model.Id">Emprestar</button>
                 </div>
             </div>
         </div>
@@ -126,7 +125,44 @@ else
                     $('.btn-devolver').html('Devolver');
                 },
             });
+        });
 
+        $('.btn-emprestar').on('click', function () {
+            var jogoId = $(this).data('id');
+
+            var amigoId = $('#AmigoId').val();
+            if (amigoId == '') {
+                $('.mensagem-emprestimo').addClass('alert alert-danger').html('').append('Selecione um Amigo para poder emprestrar o Jogo.');
+                $('#AmigoId').focus();
+            }
+
+            $.ajax({
+                method: "POST",
+                url: '/Jogo/EmprestarJogo/',
+                data: {
+                    id: jogoId,
+                    amigoId: amigoId
+                },
+                beforeSend: function () {
+                    $('.btn-emprestar').html('<i class="fa fa-spinner fa-spin"></i>&nbsp;Emprestando...');
+                },
+                success: function (response) {
+                    if (response) {
+                        if (response.succeeded) {
+                            $('.mensagem-emprestimo').addClass('alert alert-success').html('').append(response.message);
+                            $('.btn-emprestar').attr('disabled', 'disabeld');
+                            setTimeout(function () {
+                                location.reload();
+                            }, 2000);
+                        } else {
+                            $('.mensagem-emprestimo').addClass('alert alert-danger').html('').append(response.message);
+                        }
+                    }
+                },
+                complete: function () {
+                    $('.btn-emprestar').html('Emprestar');
+                },
+            });
         });
     </script>
 }

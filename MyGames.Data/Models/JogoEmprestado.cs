@@ -6,6 +6,7 @@ namespace MyGames.Data.Models
 {
     public class JogoEmprestado
     {
+        public int Id { get; set; }
         public int PessoaId { get; set; }
         public int JogoId { get; set; }
         public DateTime DtEmprestimo { get; set; }

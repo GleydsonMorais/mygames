@@ -161,48 +161,6 @@ namespace MyGames.API.Services
                     var validateJogo = await _jogoRepository.ValidateGameAsync(nome, jogo.TipoJogoId);
                     if ((nome.ToLower() == jogo.Nome.ToLower()) || ((nome.ToLower() != jogo.Nome.ToLower()) && validateJogo == null))
                     {
-                        //if (model.AmigoId.HasValue)
-                        //{
-                        //    var amigo = await _amigoRepository.GetAmigoAsync(model.AmigoId.Value);
-                        //    if (amigo != null)
-                        //    {
-                        //        if (!jogo.Emprestado)
-                        //        {
-                        //            jogo.Emprestado = true;
-                        //            jogo.HistoricoEmprestimo.Add(new MyGames.Data.Models.JogoEmprestado
-                        //            {
-                        //                PessoaId = amigo.Id,
-                        //                DtEmprestimo = DateTime.Now,
-                        //                Devolvido = false
-                        //            });
-
-                        //            await _jogoRepository.UpdateJogoAsync(jogo);
-
-                        //            return new QueryResult<string>
-                        //            {
-                        //                Succeeded = true,
-                        //                Message = "Jogo emprestado com sucesso."
-                        //            };
-                        //        }
-                        //        else
-                        //        {
-                        //            return new QueryResult<string>
-                        //            {
-                        //                Succeeded = false,
-                        //                Message = "Jogo já está emprestado!"
-                        //            };
-                        //        }
-                        //    }
-                        //    else
-                        //    {
-                        //        return new QueryResult<string>
-                        //        {
-                        //            Succeeded = false,
-                        //            Message = "Amigo não esta cadastrado!"
-                        //        };
-                        //    }
-                        //}
-
                         jogo.Nome = nome;
 
                         await _jogoRepository.UpdateJogoAsync(jogo);
@@ -270,6 +228,117 @@ namespace MyGames.API.Services
                         {
                             Succeeded = false,
                             Message = "Jogo não está emprestado!"
+                        };
+                    }
+                }
+                else
+                {
+                    return new QueryResult<string>
+                    {
+                        Succeeded = false,
+                        Message = "Jogo não cadastrado!"
+                    };
+                }
+            }
+            catch (Exception)
+            {
+                return new QueryResult<string>
+                {
+                    Succeeded = false,
+                    Message = "Erro, tente novamente!"
+                };
+            }
+        }
+
+        public async Task<QueryResult<string>> EmprestarJogoAsync(int id, int amigoId)
+        {
+            try
+            {
+                var jogo = await _jogoRepository.GetJogoAsync(id);
+                if (jogo != null)
+                {
+                    if (!jogo.Emprestado)
+                    {
+                        var amigo = await _amigoRepository.GetAmigoAsync(amigoId);
+                        if (amigo != null)
+                        {
+                            jogo.Emprestado = true;
+                            jogo.HistoricoEmprestimo.Add(new MyGames.Data.Models.JogoEmprestado
+                            {
+                                PessoaId = amigo.Id,
+                                JogoId = jogo.Id,
+                                DtEmprestimo = DateTime.Now,
+                                Devolvido = false
+                            });
+
+                            await _jogoRepository.UpdateJogoAsync(jogo);
+
+                            return new QueryResult<string>
+                            {
+                                Succeeded = true,
+                                Message = "Jogo emprestado com sucesso."
+                            };
+                        }
+                        else
+                        {
+                            return new QueryResult<string>
+                            {
+                                Succeeded = false,
+                                Message = "Amigo não esta cadastrado!"
+                            };
+                        }
+                    }
+                    else
+                    {
+                        return new QueryResult<string>
+                        {
+                            Succeeded = false,
+                            Message = "Jogo já está emprestado!"
+                        };
+                    }
+                }
+                else
+                {
+                    return new QueryResult<string>
+                    {
+                        Succeeded = false,
+                        Message = "Jogo não cadastrado!"
+                    };
+                }
+            }
+            catch (Exception)
+            {
+                return new QueryResult<string>
+                {
+                    Succeeded = false,
+                    Message = "Erro, tente novamente!"
+                };
+            }
+        }
+
+        public async Task<QueryResult<string>> DeleteJogoAsync(int id)
+        {
+            try
+            {
+                var jogo = await _jogoRepository.GetJogoAsync(id);
+                if (jogo != null)
+                {
+                    if (!jogo.Emprestado)
+                    {
+                        await _jogoRepository.DeleteJogoAsync(jogo);
+
+                        return new QueryResult<string>
+                        {
+                            Succeeded = true,
+                            Message = "Jogo deletado com sucesso."
+                        };
+                    }
+                    else
+                    {
+                        return new QueryResult<string>
+                        {
+                            Succeeded = false,
+                            Message = "Jogo não pode ser deletado, pois ainda esta emprestado!"
                         };
                     }
                 }

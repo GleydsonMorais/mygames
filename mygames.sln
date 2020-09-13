@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGames.API", "MyGames.API\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGames.Data", "MyGames.Data\MyGames.Data.csproj", "{4A095936-B951-4065-A527-67451F6B1E40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGames.Object", "MyGames.Object\MyGames.Object.csproj", "{EF3674C4-E642-4EDC-8F04-A7F3EC18543D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGames.Object", "MyGames.Object\MyGames.Object.csproj", "{EF3674C4-E642-4EDC-8F04-A7F3EC18543D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

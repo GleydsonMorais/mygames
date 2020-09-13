@@ -15,5 +15,8 @@ namespace MyGames.Web.Interfaces
         Task<JogoEditViewModel> GetJogoEditAsync(int id);
         Task<QueryResult<JogoEditViewModel>> EditJogoAsync(JogoEditViewModel model);
         Task<QueryResult<string>> DevolverJogoAsync(int id);
+        Task<QueryResult<string>> EmprestarJogoAsync(int id, int amigoId);
+        Task<JogoDeleteViewModel> GetJogoDeleteAsync(int id);
+        Task<QueryResult<string>> DeleteJogoAsync(JogoDeleteViewModel model);
     }
 }

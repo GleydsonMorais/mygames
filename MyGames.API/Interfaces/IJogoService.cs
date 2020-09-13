@@ -16,5 +16,7 @@ namespace MyGames.API.Interfaces
         Task<QueryResult<string>> CreateJogoAsync(JogoCreate model);
         Task<QueryResult<string>> UpdateJogoAsync(int id, string nome);
         Task<QueryResult<string>> DevolverJogoAsync(int id);
+        Task<QueryResult<string>> EmprestarJogoAsync(int id, int amigoId);
+        Task<QueryResult<string>> DeleteJogoAsync(int id);
     }
 }

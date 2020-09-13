@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyGames.Data.Contexts;
 
 namespace MyGames.Data.Migrations
 {
     [DbContext(typeof(MyGamesDbContext))]
-    partial class MyGamesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200913004419_alter_PK_JogoEmprestado")]
+    partial class alter_PK_JogoEmprestado
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -119,5 +119,41 @@ namespace MyGames.Web.Controllers
         [HttpPost]
         [ActionName("DevolverJogo")]
         public async Task<QueryResult<string>> DevolverJogoAsync(int id) => await _jogoService.DevolverJogoAsync(id);
+
+        [HttpPost]
+        [ActionName("EmprestarJogo")]
+        public async Task<QueryResult<string>> EmprestarJogoAsync(int id, int amigoId) => await _jogoService.EmprestarJogoAsync(id, amigoId);
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var model = await _jogoService.GetJogoDeleteAsync(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(JogoDeleteViewModel model)
+        {
+            try
+            {
+                var result = await _jogoService.DeleteJogoAsync(model);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.alerts = new AlertViewModel { Type = GeneralConstants.ERROR, Text = result.Message };
+
+                    model = await _jogoService.GetJogoDeleteAsync(model.Id);
+                    return View(model);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation(ex.Message);
+                return View("Error", new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            }
+        }
     }
 }

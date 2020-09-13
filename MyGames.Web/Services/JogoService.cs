@@ -216,5 +216,92 @@ namespace MyGames.Web.Services
                 };
             }
         }
+
+        public async Task<QueryResult<string>> EmprestarJogoAsync(int id, int amigoId)
+        {
+            try
+            {
+                RestClient client = new RestClient(_myGamesAPIConfig.URL);
+                RestRequest request = new RestRequest("api/jogo/emprestar/{id}/{amigoId}", Method.PUT);
+                request.AddParameter("id", id, ParameterType.UrlSegment);
+                request.AddParameter("amigoId", amigoId, ParameterType.UrlSegment);
+
+                System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+                //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3;
+
+                IRestResponse<string> response = await client.ExecuteAsync<string>(request);
+
+                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+                {
+                    return new QueryResult<string>
+                    {
+                        Succeeded = true,
+                        Message = "Jogo emprestado com sucesso."
+                    };
+                }
+
+                return new QueryResult<string>
+                {
+                    Succeeded = false,
+                    Message = response.Data
+                };
+            }
+            catch (Exception)
+            {
+                return new QueryResult<string>
+                {
+                    Succeeded = false,
+                    Message = "Erro, tente novamente!"
+                };
+            }
+        }
+
+        public async Task<JogoDeleteViewModel> GetJogoDeleteAsync(int id)
+        {
+            var jogo = await GetJogoAsync(id);
+            return new JogoDeleteViewModel
+            {
+                Id = jogo.Id,
+                Nome = jogo.Nome,
+                Tipo = jogo.Tipo.Descricao,
+                Emprestado = GamesConstants.GetStatusDevolucao(jogo.Emprestado),
+                Amigo = jogo.Historico.SingleOrDefault(y => y.Devolvido == false)?.Amigo.Nome,
+                DtEmprestimo = jogo.Historico.SingleOrDefault(y => y.Devolvido == false)?.DtEmprestimo.ToShortDateString(),
+                Historico = jogo.Historico.Where(x => x.Devolvido == true).Select(x =>
+                new HistoricoEmprestimoViewModel
+                {
+                    Amigo = x.Amigo.Nome,
+                    DtEmprestimo = x.DtEmprestimo.ToShortDateString(),
+                    DtDevolucao = x.DtDevolucao.Value.ToShortDateString()
+                }).ToList()
+            };
+        }
+
+        public async Task<QueryResult<string>> DeleteJogoAsync(JogoDeleteViewModel model)
+        {
+            RestClient client = new RestClient(_myGamesAPIConfig.URL);
+            RestRequest request = new RestRequest("api/jogo/{id}", Method.DELETE);
+            request.AddParameter("id", model.Id, ParameterType.UrlSegment);
+
+            System.Net.ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            //System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Ssl3;
+
+            IRestResponse<string> response = await client.ExecuteAsync<string>(request);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
+            {
+                return new QueryResult<string>
+                {
+                    Succeeded = true,
+                    Message = "Jogo deletado com sucesso."
+                };
+            }
+
+            return new QueryResult<string>
+            {
+                Succeeded = false,
+                Message = response.Data
+            };
+        }
     }
 }

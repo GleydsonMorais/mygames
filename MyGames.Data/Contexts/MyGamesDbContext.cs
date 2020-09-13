@@ -142,7 +142,7 @@ namespace MyGames.Data.Contexts
             modelBuilder.Entity<JogoEmprestado>(i =>
             {
                 i.ToTable("JogoEmprestado");
-                i.HasKey(x => new { x.PessoaId, x.JogoId });
+                i.HasKey(x => x.Id);
 
                 i.HasOne(x => x.Pessoa)
                 .WithMany(x => x.JogosEmprestados)

@@ -16,6 +16,7 @@ namespace MyGames.Data.Repositories
         Task<Jogo> ValidateGameAsync(string Nome, int TipoJogoId);
         Task InsertJogoAsync(Jogo jogo);
         Task UpdateJogoAsync(Jogo jogo);
+        Task DeleteJogoAsync(Jogo jogo);
     }
 
     public class JogoRepository : IJogoRepository
@@ -52,6 +53,12 @@ namespace MyGames.Data.Repositories
         public async Task UpdateJogoAsync(Jogo jogo)
         {
             _dataContext.Update(jogo);
+            await _dataContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteJogoAsync(Jogo jogo)
+        {
+            _dataContext.Remove(jogo);
             await _dataContext.SaveChangesAsync();
         }
     }

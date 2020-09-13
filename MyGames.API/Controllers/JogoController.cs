@@ -88,10 +88,30 @@ namespace MyGames.API.Controllers
             return NoContent();
         }
 
+        //PUT api/Jogo/Devolver/5
+        [HttpPut("Emprestar/{id}/{amigoId}")]
+        public async Task<ActionResult> Devolver(int id, int amigoId)
+        {
+            var result = await _jogoService.EmprestarJogoAsync(id, amigoId);
+            if (!result.Succeeded)
+            {
+                return NotFound(result.Message);
+            }
+
+            return NoContent();
+        }
+
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
+            var result = await _jogoService.DeleteJogoAsync(id);
+            if (!result.Succeeded)
+            {
+                return NotFound(result.Message);
+            }
+
+            return NoContent();
         }
     }
 }
