@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGames.Data", "MyGames.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyGames.Object", "MyGames.Object\MyGames.Object.csproj", "{EF3674C4-E642-4EDC-8F04-A7F3EC18543D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyGames.TestIntegration", "MyGames.TestIntegration\MyGames.TestIntegration.csproj", "{06601A38-17DE-4EB4-AB60-6C00194CCE93}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{EF3674C4-E642-4EDC-8F04-A7F3EC18543D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF3674C4-E642-4EDC-8F04-A7F3EC18543D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF3674C4-E642-4EDC-8F04-A7F3EC18543D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06601A38-17DE-4EB4-AB60-6C00194CCE93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06601A38-17DE-4EB4-AB60-6C00194CCE93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06601A38-17DE-4EB4-AB60-6C00194CCE93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06601A38-17DE-4EB4-AB60-6C00194CCE93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

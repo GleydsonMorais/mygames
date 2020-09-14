@@ -39,7 +39,7 @@ namespace MyGames.Data.Repositories
             .Include(x => x.TipoPessoa)
             .Include(x => x.Login)
             .Include(x => x.HistoricoEmprestimos).ThenInclude(x => x.Jogo).ThenInclude(x => x.TipoJogo)
-            .SingleOrDefaultAsync(x => x.Id == id);
+            .SingleOrDefaultAsync(x => x.Id == id && x.TipoPessoaId == AccountConstants.AmigoDB);
 
         public async Task<Pessoa> ValidateEmialAsync(string email) => await _dataContext.Pessoas
             .Include(x => x.Login)
